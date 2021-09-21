@@ -1,0 +1,1295 @@
+Boostrap fue creado originalmente como parte del proyecto twitter, con la idea de mantener la consistencia entre los elementos del sistema, mas bien los elementos del front end, hasta la version 3 Boostrap fue catalogado como un framework, en la ultima version se denomina asi mismo toolkit, que es en realidad un conjunto de herramientas que nos va a servir para el desarrollo front end,
+con Boostrap podremos desarrollar aplicaciones responsivas y mobile-first, de manera mucho mas facil, rapida y estandarizada
+Mobile-first se refiere a una estrategia en la cual el codigo se diseña en su principio para dispositivos moviles, ya que en las versiones anteriores lo que haciamos era ir adaptando de tamaños grandes a pequeños, es decir de una pantalla de una laptop a una tablet y finalmente a un dispositivo movil, ahora lo que indica el concepto de Mobile-first es iniciar de los dispositivos mas pequeños a los dispositivos grandes
+recordar tambien que bootstrap no es simplemente una hoja de estilos, bootstrap tiene diversos componentes html, css, java script, lo cual lo convierte en un kit completo de desarrollo front end, 
+puedes incluir bootstrap en tu proyecto independientemente de la tecnologia que estes utilizando como backend,
+para Integrar Boostrap a un proyecto nos vamos al siguiente link, https://getbootstrap.com/, en la parte de abajo podemos ver la opciones de integracion, una de ellas es la intalacion mediante administradores de paquetes o dependencias como es composer, esta opcion la vamos a utilizar si nuestro proyecto ya esta creado previamente o si planeamos crearlo con tecnologias como esta
+en la seccion de Installation, damos clic en el boton read installation docs, al dar clic en el boton podemos ver la documentacion mas completa hacerca de las opciones que tenemos en cuanto a la integracion de bootstrap a nuestro proyecto
+vemos que una opcion es descargar directamente aqui los archivos js y css, para agregarlos como tal el archivo comprimido a nuestro proyecto
+vemos que la siguiente opcion es descargar directamente aqui los archivos js y css, y agregarlos al proyecto pero estos archivos no son compilados
+mas abajo podemos ver la opcion de utilizar la referencia al CDN de bootstrap, de esta forma no vamos a descargar nada y unicamente tenemos que agregar las etiquetas para css, si vamos a utilizar elementos o componentes que utilizen java script, debemos de agregar siempre la referencia jquery, y tambien debemos agregar al menos para bootstrap 4 en adelante, la referencia pooper js 
+creamos un arhivo html llamado index.html, escribimos html:5 y despues presionamos tab, para crear una estructura html
+nos vamos a la etiqueta head y agregamos la referencia para css al final de la etiqueta head, <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+nos vamos a la etiqueta body, al final del body agregamos las refrencias con el siguiente orden, ya que es muy importante el orden, primero jquey, despues pooper js y por ultimo bootstrap
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+_______________________________________
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+</html>
+_____________________________________
+Viewport lo podemos considerar como el area que tenemos disponible para nuestro sitio web, es decir el contenedor o el area en el que se muestra nuestro sitio web en este caso, si lo vemos en una computadora por ejemplo, puede ser un navegador, este seria el area que nos permite mostrar nuestro sitio web dentro del navegador
+debido a la naturaleza mobile first de bootstrap 4, nuestro viewport por defecto es el de dispositivos mobiles, es decir con tamaños menores a 586 pixeles
+lo que haremos entonces sera diseñar nuestro sitio web en base a la medida de dispositivos moviles y partir de alli para ir adaptandolo a otros diferentes tamaños como tablets o monitores
+en versiones anteriores de bootstrap lo primero que haciamos era diseñar en base a un navegador a un tamaño promedio de una computadora, en este caso vamos a utilizar como referencia el viewport de dispositivos moviles
+debido a que bootstrap es mobile first, se recomienda agregar una etiqueta meta, esta etiqueta es para lograr el rendereo y el correcto funcionamiento de bootstrap en dispositivos mobiles, el nombre de esta etiqueta es viewport, vemos que la etiqueta tiene el atributo name que es igual a viewport, el atributo content que es igual a width=device-width para indicar que el width va a ser igual al wigth del dispositivo,  initial-scale=1.0 definimos que la escala inicial sea a 1.0, y por ultimo le agregamos el shrink-to-fit=no, ya que si no tiene el shrink-to-fit=no la pagina se va a ser pequeñita dependiendo del dispositivo, shrink-to-fit lo ponemos en no por que nosotros no lo vamos a requerir, ya que nosotros mismos vamos a adaptar nuestro sitio para que se vea bien o los elementos se adapten a los tamaños requeridos o la posicion requerida, 
+nos vamos al archivo index.html, en la etiqueta head, despues de la etiqueta <meta charset="UTF-8">, escribimos meta:vp para agregar la etiqueta meta viewport, en el atributo content agregamos la siguiente funcionalidad al ultimo shrink-to-fit=no
+<meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
+Estructura
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+</html>
+______________________________________________
+Nos vamos al link https://getbootstrap.com/docs/4.2/getting-started/contents, damos clic en la seccion contents que esta en la parte de la izquierda, en la parte que dice Precompiled Bootstrap vemos lo que contiene la version precompilada de bootrtrap, vemos que esta estructura es un poco confusa, ya que el mismo archivo se puede repetir varias veces, por ejemplo el archivo bootstrap-grid.css, el arhivo bootstrap-grid.css.map que es el css pero minificado, y lo mismo pasa con los arcchivos js
+en la parte de CSS files podemos observar los componentes de una manera mas clara, lo que hace bootstrap por ejemplo la etiqueta que nosotros incluimos en nuestro archivo index.html que hacia referencia al CDN, al archivo css, lo que va a contener los elementos que vemos en la tabla, 
+si nosotros hacemos referencia al archivo bootstrap.css o bootstrap.min.css, vamos a incluir el Layout, Content, Components, Utilities
+si nosotros hacemos referencia al archivo bootstrap-grid.css o bootstrap-grid.min.css, vamos a incluir de la parte del layout el Only grid system, de la parte de Utilities el Only flex utilities
+si nosotros hacemos referencia al archivo bootstrap-reboot.css o bootstrap-reboot.min.css, vamos a incluir de la parte del Content el Only Reboot
+lo mismo sucede con los archivos js, dependiendo de cual incluyas es lo que vamos a tener en el proyecto
+lo importante es comprender que bootstrap 4 esta dividido de manera general en 4 elementos principales, los cuales con Layout, Content, Components, Utilities
+El Layout se refiere a compenentes y opciones para darle estrucutura a tu proyecto, incluye por ejemplo containers o contenedores, un sistema de cuadricula o grid system
+el content incluye elementos de tipografia como headings o titulos, elementos para incluir codigo, ya se una linea de codigo o bloques de codigo comletos, tambien tiene contenido para imagenes, figuras y tablas
+los Components son tambien conocidos en versiones anteriores de bootstrap, son diversos elementos que incluyen css y js, es decir ademas de dar estilo tambien tiene comportamiento que podemos manejar a traves de triger, metodos o eventos, entre los componentes podemos encontrar por ejemplo alertas, botones, carrucel, modals, dropdown, la paginacion, 
+las utilities son elementos que nos permitiran manejar de manera mas rapida y facil, aspectos sencillos bastantes sencillos, como normalmente hemos visto las utilidades son para cosas muy simples pero que se utilizan frecuentemente, por ejemplo hay una utilidad en bootstrap 4 que es de las mas comunes, es para mostrar o ocultar elementos sin necesidad de modificar al atributo display, otras utilidades frecuentes son los bordes, los color que ya estan como predefinidos en bootstrap 4, el flex que es para utilizar flexbox de manera sencilla, directamente con clases, tambien existe el position y tambien el text
+_____________________________________________
+para saber mas hacerca del soporte o los navegadores o dispositivos que soportan bootstrap 4, puedes consultar la seccion de Browsers and devices que esda a lado izquierdo, vemos una lista de los navegadores mas comunes, 
+Chrome >= 45
+Firefox >= 38
+Edge >= 12
+Explorer >= 10
+iOS >= 9
+Safari >= 9
+Android >= 4.4
+Opera >= 30
+aunque bootstrap no este explicitamente soportado por algunos otros navegadores que no son muy conocidos, que de echo no aparecen en la anterior lista, lo mas probable es que bootstrap funcione correctamente, a lo mejor no perfectamente pero si que no tenga mayores fallas
+en la seccion de Mobile devices podemos ver, mas hacerca de los dispositivos mobiles y del soporte tambien, vemos que en adroid se soporta Chrome, Firefox, Android Browser & WebView Microsoft, Edge, igual nos muestra la lista de navegadores para ios y Windows 10 Mobile
+____________________________________
+el layout se refiere a la estructura o a la distribucion de los elementos que tendra nuestro proyecto, el layout lo vamos utilizar para cualquier proyecto bootstrap, una vez comprendido el grid layaout de bootstrap tenemos las bases para poder utilizar practicamente cualquier componete de bootstrap 4, esto es por que todos o casi todos los elementos que vamos a utilizar en bootstrap 4 estan basados en el grid layout
+nos vamos al siguiente link, https://getbootstrap.com/docs/4.2/getting-started/introduction/, damos clic en la seccion de layouts, en la parte de Containers vemos los contenedores que son los elementos mas basicos del layout bootstrap, vemos que para crearlos solo agregamos un div con la clase container, el container lo que nos hace es que nos permite acomodar elementos de acuerdo a nuestras necesidades,
+<div class="container">
+  <!-- Content here -->
+</div>  
+ con la clase container vamos a ver algunas variaciones en el tamaño del div, dependiendo del tamaño del viewport, si queremos que nuestro container sea siempre del 100% del width del viewport, vamos a utilizar la clase container fluid
+<div class="container-fluid">
+  ...
+</div>
+lo unico que tenemos que recordar de los container, es que el container con la clase container lo que va  ahacer es cambiar y tener diferentes tamaños, dependiendo del viewport se va adaptando y algunas veces ocupa todo del viewport y alguna veces no, en cambio el container fluid, siempre en cualquier tamaño del viewport va a utilizar todo el width sin dejar un espacio vacio, entonces esa es la diferencia entre container y container fluid
+en la parte de Responsive breakpoints, vemos los Responsive breakpoints estos se refiere a dependiendo de que tamaño del viewport es que va a cambiar el tamaño del container, las medias querys son las que nos va a idicar en que momento se cambia el tamaño, a continuacion un ejemplo
+
+el tamaño pequeño es de 576 a 767px
+@media (min-width: 576px) { ... }
+el temaño medio es 768 a  991px
+@media (min-width: 768px) { ... }
+
+el tamaño grande es de 992 a 1999px
+@media (min-width: 992px) { ... }
+el tamaño extra grande es apartir de 1200px
+@media (min-width: 1200px) { ... }
+la media query que es por defecto que no aparece en la anterior lista se refiere dispositivos menores de width menor a 576px, ya que es mobile firts, por defecto los estilos se van a aplicar a un tamaño menor a 576px
+las medias querys que vimos anteriormente ya estan en la parte responsiva o en los archivos que tienen la parte responsiva de bootstrap, no es necesario de agrgar al proyecto, aunque regularmente en el 99% de los proyectos, si tu vas a requerir modificar cosas de acuerdo a lo que tu necesitas en tu pagina, vas a agregar estos break points en tu archivo responsive.css
+creamos una carpeta css
+dentro de la carpet css cremoas un archivo llamado responsive.css 
+dentro del archivo css/responsive.css agregamos los anteriores break points
+una recomendacion es no utilizar diferentes break points de los que utiliza bootstrap, ya que luego empieza a ver detalles como que no coinciden los estilos
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+______________________________________________________________
+nos vamos al archivo index.html, en el body, agregamos un div con la clase container, agregamos un div con la clase container fluid
+para inspeccionar presionamos fn+f12, si arrastramos la liena o borde que esta a la izquierda de inspeccionar hacia a la izquierda, podemos ver como se hace el viewport mas pequeño o mas grande dependiendo de hacia donde lo arrastremos, tambien podemos ver el comportamiento del container dependiendo si es unicamente contenerdor o contenedor fluido, el contenedor va a variar su tamaño dependiendo del width del viewport, si hacemos la herramienta inspeccionar mas pequeña el viewport se hace mas grande y vemos que el container no ocupa todo el width del viewport, ocupa solo cierto espacio, si hacemos el viewport mas pequeño, el container va ocupando un poco mas de espacio pero esto es variable y esta definido por bootstrap 4, el container hasta tañamos menores a 576px es que va a empezar tomar todo el width del viewport, pero en tamaños mas grandes ocupa cierto espacio definido por bootstrap
+en cambio el container fluid los vamos a utilizar siempre que necesitemos que el contenedor ocupe todo wl width del viewport, el container fluid nunca deja espacio de sobra por decir
+dependiendo de como queramos mostrar la informacion, sera el o los container que vayamos agregando dentro de la pagina web o sitio web
+si nos vamos al link https://getbootstrap.com/, vemos que donde dice bootstrap con letras grandes y el logo de bootstrap es un container, si lo inspeccionamos con fn+f12 podemos comprobar que si es un container, por eso se esta adaptando dependiendo del tamaño del viewport, y si quisieramos una parte que no estuviera dentro de este contenedor que seria por ejemplo la parte de installacion en el sitio getbootstrap.com, ya que si la inspeccionamos vemos que siempre ocupa todo el width del viewport
+entonces esa es la diferencia entre el container fluid que ocupa todo el width del viewport y el container que en algunas ocaciones lo ocupa y a veces no, su tamaño va a estar variando 
+_____________________________________________________________________
+una ventaja de bootstrap es que maneja diversas clases que nos ayudan a dar formato a nuestros elementos de forma facil y rapida, ahorandonos tambien el agregar estilos
+todo lo que vemos en un contenedor, por ejemplo el color de fondo, el color del texto, el borde, entreo otras cosas, se puede hacer unicamente con clases de bootstrap 4
+nos vamos al archivo index.html, en el body, al div container le pasamos la clase container, al otro div le pasamos la clase container fluid, de esta forma ya el esta dando los estilos que rquiere bootstrap 4, esot lo podemos inpeccionar presionado fn+f12, en la seccion de elements, damos clic en el elemento div con el container , ye vemos que para container tiene un css o un estilo ya definido y tiene un max-width por ejemplo, entre otras clases, 
+al div con la clase container le agregamos la clase fixed-top, esta clase se refiere a la posicion de nuestro elemento, es decir podemos utilizar static, relative, aboslute, fix y stiky, en este caso especificamos mas a fondo indicando que sera fixed o fijo , pero tambien indicando que va a estar en la parte superior
+al div con la clase container fluid le agregamos la clase fixed-bottom, esta clase se refiere a la posicion de nuestro elemento, es decir podemos utilizar static, relative, aboslute, fix y stiky, en este caso especificamos mas a fondo indicando que sera fixed o fijo , pero tambien indicando que va a estar en la parte inferior
+la clase border son utilities de bootstrap 4 para agregar bordes a los elementos, podemos indicar la posicion del border por ejemplo, border-top y vemos que la linea del borde unicamente lo ha agregado en la parte superior, tambien podemos indicar border-bottom, border-right, border-lefth, solo border y esto va a indicar que por defecto va a tener borde en todos los lados del elemento
+de echo del del borde tambien podemos especificar si queremos que el borde sea agregado en la parte exterior del elemento, es decir como adicion al alemento, o si queremos que este en la parte interna, es decir que no se agregue mas espacio digamos que sea parte del contenido del elemento, esto lo hacemos con border-0 lo estaria agregando en la parte inferior o interna del elemento, para tener el borde visible en la parte exterior con solo border lo podemos hacer
+tambien podemos indicar el color del borde, bootstrap maneja colores por defecto, border-success es uno de los colores que bootstrap maneja por defecto, tambien tiene los colores, border-secondary, border-info, border-warning, border-dark, entre muchos otros, estos los puedes consulta en la documentacion, border-success es verde, normalmente este color se utiliza para alertas por ejemplo, cuando mostrammos una alerta de que fue exitoso o algo, tambien esta el border-warning por ejemplo que nos muestra un color amarillo naranja, border-info es otro color que podemos utilizar y es color azul, para utilizar los colores del borde utilizamos unicamente la palabra border seguido de - seguido de la clase que estamos utilizando,
+finalmente el border tambien lo podemos indicar de forma que sea redondeado o agregando un border radious, si queremos que todos los bordes sean redondeados esto lo hacemos agregando la clase rounded, si solo queremos que se redondien las esquinas superiores le pasamos la clase rounded-top, si queremos que el container sea como un circulo le pasamos la clase rounded-circle, vemos que esta de una forma completamente ovalada por que las esquinas del elemento estan redondeadas al 100%
+otra de las clase que podemos utilizar es bg-light, vemos que los mismos colores que vimos para el borde estan disponibles para las clases de bootstrap, por ejemplo en el caso bg-light, bg se refiere al background, si agregamos la clase bg-light le asignamos el color light de fondo, si quisieramos cambiarle el color de fondo podemos asignarnel el color amarillo de warning de la siguiente manera  bg-warning
+dentro del div con la clase container agregamos una etiqueta parrafo, a la etiqueta parrafo le agregamos la clase text-primary y text-center, con la clase text-primary le definimos el color primary al texto, con la clase text-center indicamos la alineacion del parrafo, puede ser centrado, a la izquierda o a la derecha, tambien podemos indicar si vamos a utilizar mayusculas con la clase text-uppercase o minusculas con la clase text-lowercase, tambien si queremos utilizar el formato en que la primera letra de cada palabra va a ser en mayscula utilizamos la clase text-capitalize
+de igual forma podemos definir estilos como bold, o italica, o podemo indicar que tan bold o que tan negrita va a ser nuestro texto con la clase font-bold por ejemplo, font-italic si va a ser cursiva o font-normal si lo queremos utilizar normalmente
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<body>
+	<div>
+
+		<div class="container fixed-top border border-warning bg-light">
+  <p class="text-primary text-center text-capitalize font-weight-normal">Container</p>
+</div>
+	<div class="container-fluid fixed-bottom border border-success bg-light">
+    <p class="text-primary text-center text-capitalize font-weight-normal">Container-fluid</p>
+</div>
+	</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+</html>
+--------------------------------------------------
+Bootstrap 4 esta basado o inplementado en flexbox, basado en flexbos, flexbox es un tipo o modo de layout establecido en css3, como lo han sido el block layout, linear layout, o el table layout en versiones anteriores, basicamente flexbox se refiere a estilos que proveen una forma mas eficiente ye mejor de estrucuturar, alienar y distribuir el espacio entre elementos, aun cuando el tamaño de esos elementos pueda ser dinamico, por esto es llamado flex de echo, por flexible,
+grid system
+booststrap 4 tiene integrado un sistema de cuadricula que nos ayuda de inicio a acomodar los elementos de nuestra pagina de manera que tengan un orden y sean facil de estructurar, pero ademas este sistema nos va ayudar y ahorrar mucho tiempo al hacer que nuestro sitio web sea responsivo y podamos no solo cambiar los tamaños de los elementos si no tambien las posiciones de estos dependiendo del tamaño del viewport o del dispositivo que esta utilizando para abrir nuestro sitio web
+normalmente acomodamos nuestro sitio web por secciones o areas que al final pueden ser cuadriculas, el grid system de bootstrap 4 tiene filas y columnas
+nos vamos al siguiente link https://getbootstrap.com/docs/4.2/getting-started/introduction/, damos clic en la seccion layout que esta en la parte de la izquierda, damos clic en la seccion grid que esta en la parte de la izquierda, en la parte donde dice How it works, vemos un ejemplo de como seria un sistema o un grid system, vemos que dentro de un div que tiene que tener la clase container necesariamente se deben poner las filas que vamos a necesitar, las filas las vamos a representar con un div con la clase row, en el ejemplo vemos que solo tenemos un div con la clase row, es decir solo tiene una fila, pero podemos tener mas de una
+dentro de cada fila tambien se van especificar las columnas, esto lo hacemos con un div con la clase col-sm, entonces la fila del ejemplo tiene 3 columnnas
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      One of three columns
+    </div>
+    <div class="col-sm">
+      One of three columns
+    </div>
+    <div class="col-sm">
+      One of three columns
+    </div>
+  </div>
+</div>
+lo que debemos de tomar en cuenta siempre que utilizemos este sistema de cuadricula o grid system?:
+1.-numero uno la estructura correcta para el funcionamiento optimo del sistema es loq eu avabamos de ver en el ejemplo, debemos tener un container que debe tener una o mas filas, que a su vez las filas deben de contener las columnas que igual pueden ser una o varias columnas
+2.-numero dos el maximo numero de columnas que se puede tener dentro de una fila es 12, tu decides como distribuirlas y de que tamaño ponerlas, ademas el tamaño de estas columnas podemos hacerlo variable dependiendo del tamaño del viewport, por ejemplo en el ejemplo en una de las columnas podriamos indicar que para el tamaño del viewport mediano, ya que vemos que en el ejemplo esta indicando que para el tamaño del viewport pequeño o small col-sm, pues tambien podemos indicar todos los otros tamaños que hemos visto anterior mente, por ejemplo mediano, y tambien puedo indicar que por ejemplo la primera columna ocupara 6 espacios, la segunda columna 3 espacios y la tercera columna otros 3 espacios, de esta forma si sumas 6+3+3 son 12
+entonces estamos agregando las 3 columnas en una fila pero indicando el tamaño especifico de cada una, si yo le pusiera 6 espacio a la primera columna ocuparia mas espacio que las otras 2 columnas que estan ocupando 3
+esto lo hariamos con la clase col-md-6 para la primera columna, col-md-3 para la segunda columna, col-md-3 para la tercer columna
+es decir tu puedes indicar el tamaño de cualquiera de las columnas dependiendo de como lo necesites, en el ejemplo que vimos no se indica el porcentaje del width que se esta ocupando, ya que la clase col-sm no tiene un numero despues del sm seguido del -, cuando lo hacemos de esta forma lo que estamos indicando es que el espacio o el width se va a utilizar equitativamente para cada una de las columnas
+3.-el numero tres que debemos de tomar en cuenta para este sistema de cuadricula es que los 5 break points que hemos visto anteriormente son los que se utilizan tambien para que el grid system sea responsivo, como recordaras estas son echas basadas en el width minimo del veiwport, por lo tanto cuando establecemos la clase de la columna por ejemplo la primera columna del ejemplo que vimos anteriormente col-md-6, esta aplicaria para el break point md y para todos los superiores que seria large y extra large, pero no va a aplicar para tamaños mas pequeños, es decir en este caso col-sm si estamos hablando del tamaño small va aplicar para el tamaño mediano, para el grande y el estra grande, pero no para el extra chico que es menor al que etsamos indicando col-sm
+para recordar algunos de los puntoes en cuanto a los break points y al responsive desing de bootstrap 4, en el link https://getbootstrap.com/docs/4.2/layout/grid/, nos vamos a la parte de Grid options, donde nos muestra mas especificamente como funciona cada break point y como lo vamos a utilizar, pro ejemplo en la parte superior de la tabla podemos ver algo que ya conocemos que es el tamaño y el nombre que utilizamos para cada tamaño por ejemplo, si el viewport es menor a 576px estamos hablando del tamaño extra small, si el viewport es mayor o igual a 576px va a ser tamaño small, etc.
+en la fila de la tabla que dice Max container width, indica cual va a ser el maximo width del contendor que estaremos utilizando, cuando la pantalla sea extra small no tiene un width, es decir que va a ser auto, lo que habiamos visto cuando vimos el capitulo del container, va a utilizar todo el width del viewport, cuando es un viewport pequeño o small va a medir el contenedor 540px de width y asi sucesivamente con todos los tamaños,
+vemos en la fila de la tabla que dice Class prefix, que cuando indicamos .col- sin indicar un tamaño estamos diciendo que va a ser extra small, por que bootstrap 4 es mobile first, por lo tanto si no indicamos un tamaño siempre va a ser para el tamaño extra small que va a ser para dispositivosm mobiles
+para cuando queremos referirnos al tamaño pequeño la clase va a ser .col-sm-, para cuando queremos referirnos al tamaño mediano la clase va a ser .col-md-, cuando es largo o grande va a ser .col-lg-, cuando es extra largo o extra grande va a ser .col-xl-, siempre para todos el numero de columnas es 12 como habiamos dicho anteriormente
+en la fila de la tabla que dice Nestable, indica que puede ser anidable, es decir podemos meter digamos una tabla dentro de otra tabla, 
+tambien podemos indicar el orden de las columnas, es decir yo puedo tener 2 columnas y decir que la segunda que tengo va a estar en el lugar 1, y la primera que tengo va a estar en el lugar 2, esto funciona perfectamente cuando queremos mover la posicion de nuestros elementos dependiendo del tamaño de viewport
+___________________________________________________________
+Nos vamos al siguiente link https://getbootstrap.com/docs/4.3/examples/album/, inspecionamos con fn+f12
+nos vamos a body, en la etiqueta main, nos vamos al div con la clase album, vemos que dentro esta un div con la clase container, dentro del container tenemos un div con la clase row o una fila, y finalmente dentro de la fila tenemos las columnas, vemos que tenemos nueve oclumnas o nueve divs con la clase col, vemos que indica que apartir del tamaño mediano va a ser un tamaño 4, col-md-4, esta digamos que es la forma mas sencilla y simple  de echo de utilizar el sistema de cuadricula, 
+una cosa que podriamos hacer con las columnas es, agregar que nuestra columna tenga diferente tamaño dependiendo de el viewport, por a las 2 primeras filas le agregamos el col-6, hay que recordar que si no le indicamos el extra small por defecto le estamos indicando que va a autilizar el extra small, hacemos la pantalla de tamaño extra small con la herramienta inspeccionar, vemos que  le indicamos que para tamaño extra small y small, por que el small no esta definido y recordemos que la etiqueta col-md-4 va aser de mediano para arriba, entonces si yo indico en las primeras filas que va a ser para extra small y no estamos indicando small entonces va a aplicar para ambas filas, vemos que las dos primeras columnas que modificamos le estamos indicando 6 y 6  por lo tanto estamos indicando que cada columna va a ocupar la mitad de la fila cada una, de esta forma puedo indicar cuantos elementos quiero en la misma fila
+class="col-md-4 col-6"
+vemos que apesar de que estan las demas columnas en la misma fila gracias al flexbox se estan llendo para abajo, ya que no podriamos meter, digamos no tendria sentido meter todas las columnas dentro de una fila por que serian diminutas, entonces gracias a flexbox y a como esta definido bootstrap 4 las manda para abajo a las columnas
+el punto aqui es mostrar, que gracias a los atributos que tienen las columnas del grid system, podemos indicar para cada tamaño de viewport o para cada break point de los que ya conocemos, chico, extra chico, mediano, grande y extra grande, cuantas columnas queremos que se ocupen dependiendo de este tamaño
+nota:podemos ver el tamaño en pixeles del viewport arriba de la barra de la herramienta inspeccionar que arrastramos para hacer mas pequeño la pantalla
+
+____________________________________________________________
+regularmente a los sitios web ponemos un header, normalmente va en la parte superior y este puede contener elementos como un logotipo, o tambien un menu de navegacion, un imput de busqueda entre otros elementos
+nos vamos al archivo index.html, en el body, al inicio del body agregamos una etiqueta html header, este header tiene la clase header-area, esta es una clase para indentificar el elemento y agregarle estilos personalizados de ser necesario, tambien le agregamos a la etiqueta header la clase fixed-top, esta clase es de los utilities de bootstrap 4, con esta clase vamos a indicar la posicion de un elemento, en este caso indicamos que va a ser fijo y va a estar en la parte superior
+dentro del header agregamos un div con la clase main-menu, este sera donde vamos a agregar el menu de navegacion, o el menu principal del sitio
+____________________________________________
+El menu  de navegacion o navbar de bootstrap 4 tiene muchas opciones y lo ideal para implementarlo es conocer primero algunas de sus caracteristicas, 
+primero para asegurar una mejor experiencia o accesibilidad se recomienda que navbar este contenido en un elemento html nav, el elemento que contiene el navbar debe contener la clase .navbar
+si requieres un comportamiento distinto como colapsar el menu en dispositivos moviles, con el menu de hamburgesa por ejemplo, para esto se debe de agregar la clase .navbar-expand por ejemplo lg o dependiendo del tamaño a partir de cualquieras que se expanda y que deje de estar digamos comprimido, .navbar-expand{-sm|-md|-lg|-xl}
+otro punto es que tambien puedes usar containers para encapsular estos elementos, dependiendo del comportamiento que quieras que tenga y tambien dependiendo de como debe funcionar de acuerdo al width del viewport
+tambien vamos a ver como agregamos un div container dentro de un menu de navegacion
+nos vamos a el link https://getbootstrap.com/docs/4.2/getting-started/introduction/, damos clic en la seccion components que esta de lado izquierdo, damos clic en la seccion Navbar 
+en la parte Supported content, vemos que el contenido que podemos agregar normalmente en una barra de navegacion, pues es el brand donde podemos agregar el logotipo o nombre de nuestro proyecto, tambien podemos agregar los que son navs o digamos los links para la navegacion, el toggle que es especificamente cuando queremos un comportamiento de colapsado para ciertos tamaños, y tambien un form-inline, que digamos se utiliza la clase form-inline para cuando queremos agregar un tipo de form dentro de la navegacion como un search, en algunos sitios el search esta por defecto en el header 
+como podemos ver la navegacion de bootstrap tiene opciones para agregar diversos tipos de elementos no unicamente lo que es un menu
+nos vamos al archivo index.html, en el body, no vamos al header que esta dentro del body, dentro  del div con la clase main-menu agregamos una etiqueta nav con la clase navbar y dentro de esta es donde vamos a agregar el elemento navbar o lo que es la navegacion
+dentro de la etiqueta nav agregamos un div con la clase container para que no se salga digamos del area en que queremos que se mantenga los elementos dentro del header, en este caso nuestro menu 
+dentro del div con la clase container, agregamos una etiqueta ul el cual nos indica el inicio  de una lista, a la etiqueta ul le pasamos las clases nav que precisamente es para indicar que es un elemento de navegacion, tambien podemos ver que tiene la clase ml-auto y mr-auto, estas son clases de las utilities de bootstrap 4 y basicamente lo unico que haran por nosotros es ahorrarnos el codigo de los estilos, indicando que queremos que este podriamos decir centrado, es decir que el margin left sea auto y el margin rigth sea auto
+dentro de la etiqueta ul, agregamos los elementos o los items de la lista con la etiqueta li, cada etiqueta li tiene una clase nav-item, esta es una clase digamos personalizada, la agregamos por si requerimos agregar estilos mas adelante, la clase active es unicamente para indicar el menu que estara activo en un inicio
+dentro de cada etiqueta li, agregamos una etiqueta a, a la etiqueta a le pasamos la clase nav-link, con la etiqueta a hacemos referencia mediante el atributo href al elemento el cual queremos ir cuando se de clic, en este caso no vamos a ir a otra pagina, ya que queremos tener todos lo elementos dentro de la misma vista, entonces unicamente ponemos el id del div al cual queremos ir en el atributo href,  
+lo anterior se va a repetir para cada uno de los menus que queremos tener, en este caso tenemos el menu principal, el cual es una etiqueta li con su etiqueta a, tambien el menu de habilidades que hace referencia al div con id skills,  href="#skills", el menu de educacion 
+el ultimo item de la lista va a ser un menu dropdown, agregamos una etiqueta li, a la etiqueta li le agregamos la clase nav-item, a la etiqueta li le agregamos la clase dropdown para indicar que este elemento va a ser un dropdown, esa es la clase de bootstrap 4 que vamos a utilizar para ello
+dentro de la etiqueta li con la clase dropdown, agregamos una etiqueta a, a la etiqueta a le pasamos las clases nav-link y dropdown-toggle, a la etiqueta a le pasamos algunos otros atributos, por ejemplo el atributo data-toggle que va a indicar la accion o funcion que realizara este elemento, en este caso va a ser desplegar o lo que es dropdown, role es el otro atributo que le vamos a pasar que va a indicar el comportamiento, en este caso se va a comoportar como un boton, button, no necesariamente como un div, tambien le pasamos el atributo aria-haspopup, con este atributo le indicamos que va a tener un sub menu, por eso le pasamos el true, y por ultimo el atributo aria-expanded que indica que por defecto no va a estar desplegado el dropdown digamos, para eso le pasamos false, cuando abramos la pagina no va a estar desplegado, simplemente se va a desplegar hasta que le demos clic
+finalmente dentro de la etiqueta li con la clase dropdown, agregamos una nueva lista, la cual va a tener la clase dropdown-menu definida por bootstrap, y tambien va a tener los elementos li como los anteriores que vimos, que van a ser los elementos que se van a mostrar dentro del dropdown, en este caso agregamos portafolio y GitHub con la referencia si la quieres agregar a tu github
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+<body>
+	<header class="header-area fixed-top">
+		<div class="main-menu">
+			<nav class="navbar">
+				<div class="container">
+					<ul class="nav ml-auto  mr-auto mr-md-0">
+						<li class="nav-item active"> <a class="nav-link" href="#main-info">Principal</a></li>
+						<li class="nav-item "> <a class="nav-link" href="#skills">Habilidades</a></li>
+						<li class="nav-item "> <a class="nav-link" href="#education">Educacion</a></li>
+						<li class="nav-item submenu dropdown">
+							<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Proyectos</a>
+							<ul class="dropdown-menu">
+									<li class="nav-item "> <a class="nav-link" href="#main-info">Portfolio</a></li>
+										<li class="nav-item "> <a class="nav-link" href="#main-info">GitHub</a></li>
+							</ul>
+						 </li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</header>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+</body>
+</html>
+______________________________________________________________________
+hay muchos comentarios de que los sitios web echos en bootstrap, se ven todos iguales, esto puede pasar si utilizamos unicamente las clases o elementos de bootstrap, pero lo cierto es que en un proyecto bien echo y personalizado, es dificil incluzo distinguir a primera vista si esta echo con bootstrap o no
+lo que hacemos para que nuestro sitio o nuestra pagina web no luzca generica es utilizar bootstrap solo como base y personalizarlo agregando nuestros propios estilos
+en la carpeta css creamos un archivo llamado custom.css, en este archivo agregaremos todos los estilos que vamos a requerir
+en el archivo css/custom.css primero agregamos los colores, esta es la parte del diseñador, en este caso hemos seleccionado una paleta de colores de un sitio web, podemos cambiarlos o escojer otra paleta de colores, en este caso hemos asignado cada color a una variable para poder utilizarlas mas adelante
+:root {
+  --blue-navy: #05205D;
+  --blue-light: #3155A7;
+  --brown-leather: #AB987A;
+  --orange-coral: #FF833D;
+  --white-egg: #F5F5F5;
+}
+luego agregamos la seccion del header, donde vamos a tener los estilos relacionados a este, vemos que estamos utilizando selectores descendientes, estos selectores los usamos de forma que podamos identificer mejor el elemento y digamos no haya confucion, en ocaciones sucede que a veces el mismo nombre de una clase los repetimos y no nos damos cuenta, o a veces de esta forma no nos perdemos con, exactamete de que elemento estamos hablando
+digamos que por ejemplo este es el elemento .dropdown-menu  al cual va a aplicar el estilo, pero tambien estamos indicando cuales son su parents .header-area .main-menu, para especificar mejor, de cual elemento estamos hablando 
+.header-area .main-menu, .dropdown-menu {
+
+vemos que al div con la clase main-menu y al ul con la clase dropdown-menu, le he puesto los estilos que va a ser un background con el color orange-coral y un box-shadow:
+a la etiqueta nav con la clase navbar, de damos un height de 70px, para hacerlo un poco mas amplio
+a las etiquetas a con la clase nav-link, le ponemos un font-size de 14px, el color igual a la variable white-egg que contiene un color de un tipo de blanco y un padding de 8px
+finalmente tenemos un estilo que va a aplicar unicamente para cuando se ejecuta el efecto hover, .nav-link:hover, este va a ser un  font-weight: 600;
+.header-area .main-menu,
+.header-area .main-menu, .dropdown-menu {
+  background: var(--orange-coral);
+  box-shadow: 0 3px 16 0 rgba(0, 0, 0, .1);
+}
+.header-area .main-menu .navbar {
+  height: 70px;
+}
+.header-area .main-menu .navbar .nav-link {
+  font-size: 14px;
+  color: var(--white-egg);
+  padding: 8px;
+}
+.header-area .main-menu .navbar .nav-link:hover {
+  
+  font-weight: 600;
+}
+nos vamos al archivo index.html
+en dentro de la etiqueta head,  despues del link o referencia de bootstrap agregamos otro link o referencia hacia el archivo css/custom.css, 
+<link rel="stylesheet" type="text/css" href="css/custom.css">
+hay que recordar que cuando usamos bootstrap 4 estamos hablando de mobile first, por lo tanto los estilos que acabamos de añadir deben de estar pensados para dispositivos mobiles o con un width menor a 576px, por lo tanto lo inspeccionaremos con ese tamaño
+presionamos fn+f12, recorremos la barra de la herramiente de inspeccionar a un valor menor de 576px
+debe quedar claro que la primera vez que estamos desarrollando o diseñando este sitio lo debemos hacer pensando en el tamaño menor a 576px
+con el inspector de codigo podemos validar los estilos que hemo añadido como por ejemplo el estilo del div con main-menu, podemos ver el color, el box-shadow, tambien podemos ver los estilos del navbar, vemos el height que agregamos, si lo desmarcamos es un poco mas delgada la area, tambien podemos ver los estilos para la navegacion por ejemplo el hover, y el dropdown tiene su respectivo background 
+hacerca de los estilos y como se sobreescriben, regularmente lo que tendremos sera estilos por defecto que maneja el navegador, luego tendremos los estilos del framework que en este caso es bootstrap 4, y finalmente tenemos los estilos que agregamos nosotros  como en este caso en el archivo css/custom.css, 
+entonces en la herramienta de inspeccionar podemos ver que tenemos varios estilos, que se agregaron gracias a bootstrap, muchos de ellos no los tuvimos que agregar manualmente, y unicamente agregamos el primero que vemos en la herramienta inspeccionar al dar clic en el nav con la clase navbar, y digamos que esta parte puede sobreescribir los anteriores, se hace este comentario por que a veces pasa que nosotros no agregamos estilos y no sabemos por que el elemento tiene cierto estilo o cierto comportamiento, lo que debemos hacer en estos casos es inspeccionarlo con la herramienta inspecionar, y si es necesario, agregar un estilo que lo sobreescriba
+por ejemplo si no queremos que el position del nav con la clase navbar sea relative, como ya esta definido gracias a bootstrap, pues agregamos un position: fixed; a la clase .navbar que contiene los estilos del elemento  nav con la clase navbar, y estariamos sobreescribiendo la posicion que tiene agregada por defecto gracias a los estilos de bootstrap
+____________________________________________________
+para hacer el header responsivo, es decir que pasa si lo quiero adaptar para diferentes tamaños de pantalla, para hacerlo tenemos dos opciones
+la opcion uno, es agregar clases de bootstrap especificas del tamaño o los tamaños de viewport, es decir de los break point que ya conocemos, en caso de que no existan las clases o que no se adapten a lo que necesito, entonces podemos agregar estilos a la media querys que agregamos anteriormente en nuestro archivo responsive.css
+por ejemplo si la navegacion del hader la quiero centrada solo en tamaños xs y sm, pero quiero que en los tamaños siguientes este alineado a la derecha por ejemplo, entonces puedo agregar una clase que ya esta definida por bootsrap 4, la clase es mr-md-0, esta clase lo que indica es que va a tener un margin right 0 unicamente para las medidas mediano o md en adelante, es decir mediano grande y extra grande, de esta forma va a sustituir el margin right auto o mr-auto, que tenia para los tamaños a partir de md
+nuevamente te comento, lo anterior lo podrias hacer con estilos, pero vale la pena aprovechar las clases que nos proporciona bootstrap 4
+para agregar estilos como tamaño de fuente por ejemplo, podemos alli si optar por la opcion 2 y agregarlos en el archivo responsive.css
+vamos al archivo css/responsive.css, en este archivo podemos ver y podemos agregar estilos dependiendo de el tamaño de nuestro viewport como ya hemos visto, en este caso cuando el width del viewport sea mayor o igual a 576px, entonces quiero que el padding de cada uno de los menus de navegacion sea  padding: .5rem 1rem;
+@media (min-width: 576px) {
+  .header-area .main-menu .navbar .nav-link {
+    padding: .5rem 1rem;
+  }
+}
+lo importante es entender como podemos nosotros agregar estilos para modificar el header, digamos para hacerlo responsivo, dependiendo del tamaño del viewport y utilizamos para ello las medias querys
+y a partir de 768px, quiero que el font-size sea de 16px
+@media (min-width: 768px) {
+  .header-area .main-menu .navbar .nav-link {
+    font-size: 16px;
+  }
+}
+nos vamos al archivo index.html, en el head agregamos la referencia al archivo css/responsive.css debabajo de la referencia al archivo css/custom.css, para que este sobreescriba al anterior
+inspeccionamos con fn+f12, si lo vemos en tamaños menores iguales a 576px, vemos todo practicamente igual, por que por defecto los estilos que añadimos anteriormente son para ese tamaño, para ver el widht, entonces para ver los cambios que hemos echo, hacemos la pantalla mas grande con la barra de la herramienta inspeccionar, y de echo ya podemos ver como los navs o los menus se han movido a la parte derecha, esto lo establecimos anteriormente con la clase de bootstrap, 
+si en la herramienta inspeccionar damos clic en la etiqueta ul con la clases nav ml-auto  mr-auto mr-md-0, nos muestra los estilos que hemos agregado con la clase mr-md-0 y le esta asignando un margin-right igual a 0, entonces es por eso que hemos logrado que en tamaños pequeños se quede centrado, y en tamaños mas grandes se alinien a la derecha, tambien podemos ver que el tamaño o el font zise cambia de tamaño, cuando es para dispositivos pequeños el font size es mas pequeño, y cuando es para dispositivos grandes el font size es mas grande, esto lo hicimos por medio de la media query, 
+si damos clic en una de las etiquetas a con la clase nav-link, vemos el font size de 16px, si lo desmarcamos va a tomar el anterior que era el font size de 14px
+entonces con esto hemos echo en la media query, para un width minimo de 768px, lo he sobreescrito y he logrado dar un estilo adaptable a cada uno de los tamaños de acuerdo a lo que requiera
+ @media (max-width: 575.98px) {
+  .header-area .main-menu .navbar {
+    height: auto;
+  }
+}
+@media (min-width: 576px) {
+  .header-area .main-menu .navbar .nav-link {
+    padding: .5rem 1rem;
+  }
+}
+@media (min-width: 768px) {
+  .header-area .main-menu .navbar .nav-link {
+    font-size: 16px;
+  }
+}
+@media (min-width: 992px) {}
+@media (min-width: 768px) {}
+________________________________________________________________
+en el sitio web vamos agregar una area donde podramos mostrar nuestra informacion general o informacion de contacto, esta es el area que normalmente ponemos en la parte superior de nuestro curriculum, en esta seccion tambien puedes agregar una foto tuya, de echo yo te recomendaria que eligas una que lusca profesional, no me refiero necesariamente a que sea algo muy serio, pero si algo que no se por ejemplo alguna en el antro, con stiker o con emoticones,
+algo que se vea un poco mas formal, para agregar la foto o cualquier imagen creamos la carpeta img, en esta carpeta podemos agregar todas las imagenes que vayas a requerir a lo largo de este curso o dentro del proyecto
+vamos al archivo index.html, despues de la seccion header agregamos una etiqueta section, este elemento es la estructura general o principal de lo que va a ser nuestra seccion de informacion principal, a la etiqueta seccion le agregamos las clases, main-info y bg-grad, estas digamos son clases personalizadas son de nosotros no son de bootstrap 4 y mas a delante las vamos a definir, lo que si sabemos es que estas clases van a ser para personalizarlo, tambien a la etiqueta section le agregamos un id main-info, es el respectivo id que requeremos para al hacer clic en el menu que hemos agregado en el header nos dirija directamente a esta seccion o a esta area
+dentro de la etiqueta section, agregamos un div con la clase container, dentro del div container agregamos un div con la clase row o una fila, dentro de la fila o el div con la clase row agregamos, dos columnas o 2 div  que contienen varias clases,
+ al primer div le pasamos la clase col-12 esta va aser la clase por defecto , es decir para tamaño xs, con esta clase estamos indicando que la columna va a ocupar todo el width, es decir lo que va  a pasar es que se va a pasar una debajo de la otra, ya que el segundo div tambien tiene la clase col-12 y le va a dar 12 espacios, tambien le pasamos la clase col-md-5 para cuando el tamaño sea mediano entonces la primer columna  va a ocupar 5 espacio y la que esta abajo va a ocupar 7 espacios ya que al div 2 le pasamso la clase col-md-7, si lo piensas bien esto es por distribucion, pero el caso es que la primer columna en un navegador muy grande o en un viewport muy grande, se veria demasiado larga, entonces lo que estamos haciendo aqui es distribuir para que no ocpue todo el width, en este caso solo va a ocupar 5 y este 7
+tambien le pasamos al primer div la clase col-xl-6 para que en tamaños extra grande este ocupando la mitad del espacio, es decir le asigne 6 espacios del width, y al segundo div tambien le pasamos la clase col-xl-6 para que las 2 columnas esten ocupando la mitad y la mitad del espacio
+al primer div le agregamos la clase img-col que es para identificar las columnas para que es cada una, en este caso vamos a mostrar la imagen
+al segundo div le agregamos la clase txt-col que es para identificar las columnas para que es cada una, en este caso vamos a mostrar el texto
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/custom.css">
+	<link rel="stylesheet" type="text/css" href="css/responsive.css">
+</head>
+<body>
+	<header class="header-area fixed-top">
+		<div class="main-menu">
+			<nav class="navbar">
+				<div class="container">
+					<ul class="nav ml-auto  mr-auto mr-md-0">
+						<li class="nav-item active"> <a class="nav-link" href="#main-info">Principal</a></li>
+						<li class="nav-item "> <a class="nav-link" href="#skills">Habilidades</a></li>
+						<li class="nav-item "> <a class="nav-link" href="#education">Educacion</a></li>
+						<li class="nav-item submenu dropdown">
+							<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Proyectos</a>
+							<ul class="dropdown-menu">
+									<li class="nav-item "> <a class="nav-link" href="#main-info">Portfolio</a></li>
+										<li class="nav-item "> <a class="nav-link" href="#main-info">GitHub</a></li>
+							</ul>
+						 </li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<section class="main-info bg-grad" id="main-info">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-md-5 col-xl-6 img-col d-flex "></div>
+				<div class="col-12 col-md-7 col-xl-6 txt-col"></div>
+			</div>
+
+		</div>
+	</section>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+</body>
+</html>
+_______________________________________________
+bootstrap 4 esta basado en flexbox, y de echo tambien cuenta con utilidades para darle a elementos html un estilo flex, 
+nos vamos al siguiente link https://getbootstrap.com/docs/4.2/getting-started/introduction/, damos clic en utilities que esta de lado izquierds , despues damos clic en flex
+para utilizar flexbos sin bootrtrap lo que hariamos normalmente, seria agregar un div que sera el que contiene los elementos que queremos acomodar, es decir el div parent, y a este div le pondriamos el estilo display-flex
+con boostrap 4 lo que hacemos es agregar a ese mismo div, es decir creamos el div pero en lugar de asignar el estilo display-flex, le asignamos la clase d-flex, es la que podemos observar en la parte Enable flex behaviors, en el primer div,
+en la parte Enable flex behaviors, podemos ver que existen variaciones, por ejemplo para un estilo inline-flex, agregariamos esta clase al elemento div d-inline-flex, 
+en la parte Enable flex behaviors, tambien podemos encontrar las variaciones, para aplicar el fex de acuerdo a los tamaños o breack points que ya conocemos, por ejemplo este d-sm-inline-flex unicamente aplicaria para los tamaños sm en adelante
+entonces como la mayoria de las clases que hemos visto enteriormente podemos, definir el display flex de acuerdo tambien al tamaño del viewport
+practicamente cualquier cosa que hacemos con css flexbox lo podemos hacer con bootstrap 4, agregando clases a los elementos, por ejemplo tambien podemos dar direccion a los elementos, simplemente utilizando la clase flex-row, como vemos en la parte Direction de la docuementecion, digamos que con flex-row estamos indicando que los elementos iran alineados como en una fila, no en una columna
+tambien lo podemos hacer con flex-row-reverse, lo que hara es invertir el orden de los elementos, es decir va a ser un reversa, va a iniciar a partir del utlimo
+en la parte Direction de la documentacion, vemos un div con la clases d-flex y flex-row, vemos que esta indicando que la direccion va a ser row, entonces me asigna los elementos  iniciando por el primer elemento
+en la parte Direction de la documentacion, vemos un div con la clases d-flex y flex-row-reverse, vemos que esta colocando los elementos, digamos iniciando por el ultimo
+vemos que tambien existe la clase para ordenar los elementos de forma que sea una columna no una fila, esto lo hacemos con la flex-column, que tambien tiene su veriosn de reversa
+en la parte de la documentacion Justify content, podmeos ver que tambien podemos justificar el contenido, esta tambien lo podriamos hacer en css con la propiedad justify-content, y en bootstrap 4 lo hacemos agregando al parent o al div que es el flex, la clase  justify-content- seguido de como queremos justificarlo, ya sea al inicio los va a alinear al inicio , al final, centrado lo que hace es centrar todos, colocar todos los child en el centro, between va a ser para dejar espacio entre los elementos, pero con la condicion de que el primer y ultimo elemento esten alineados con el parent, es decir el primero elemento pegado al inicio del parent y y el ultimo pegado al final del parent
+finalmente justify-content-around va a ser para distribuir los elementos hijos o child, de manera que esten distribuidos equitativamente en el espacio del parent como lo vemos en la parte documentacion Justify content de la documentacion 
+en la parte Align items, podemos ver que por medio del flex o por la utility flex podemos, alinear los items o los childs dentro de un div-fles, esta clase se refiere a la alineacion vertical que tendran los hijos, con la clase align-items-start, los alineara al incio del elemento verticalmente hablando, como podemos ver en la parte Align items, en el primer div
+con la clase align-items-end los alineara al final del elemento verticalmente hablando, como podemos ver en la parte Align items, en el segundo div
+con la clase align-items-center los elementos estan en el centro del elemento verticalmente hablando, digamos esto esta centrado verticalmente, como podemos ver en la parte Align items, en el tercer div
+con la clase align-items-baseline alineara los elementos child como su linea base este alineada 
+finalmente con la clase align-items-stretch, los elementos los va a acomodar de manera que ocupe todo el alto del parent
+en la parte Align items,en la parte Responsive variations also exist for align-items,  podemos ver todas las viariaciones y consultarlas si es encesario
+como podemos ver todas estas clases que hemos visto aplican para el div parent, pero indican el comportamiento de los elementos child, de cualquier forma flex box es tan potente que permite indicar el comportamiento para cada uno de los elementos child, de manera que cada uno puede, digamos ser independietne del otro, si indicamos un comportamiento especifico de cada uno, por ejemplo con la clase align-self que puede ser start, end, center, baselines, stretch, podemos hacer lo que vimos anteriormente, que era para el parent, pero seria especifico de cada elemento child, es decir, podemos indicar la alineacion vertical de cada elemento child o cada elemento hijo, unicamente agregaremos la clase que requeremos en el elemento hijo, recordemos que ya estamos checando clases que son para elementos hijos y para digamos especificar para cada uno, yo podria ponerle a un item align-self-start y a otro align-self-end, o  podriamos hacerlo de acuerdo a lo que necesitemos
+en la parte Align self de la documentacion, Responsive variations also exist for align-self., vemos nuevamente las variaciones con las que contamos de la clase align-self
+finalmente otra clase bastante util que es .flex-fill, esta clase nos ayuda digamos a forzar que los elementos child del mismo parent, tengan el mismo width sin importar el contenido que tengan en su interior, es decir por ejemplo en la parte Fill de la documentacion, vemos que a todos los divs child les han agregado la clase flex-fill, y varios tienen diferente contenido, pero como podemos ver ocupan el espacio a pesar de que el contenido sea diferente
+como las anteriores clases, que hemos visto hay muchisimas otras que podemos utilizar para acomodar nuestros elementos de manera facil y rapida con las utilities flex de bootstrap 4
+_________________________________________________________________________________________
+nos vamos al archivo index.html, en el body, en la etiqueta section, vemos que dentro de la etiqueta section tenemos un grid system, el cual dentro tiene 2 columnas, la primera es la columna img-col, y la otra que es para el texto o text-col
+, estas son las clase que les he asignado a estas columnas para identificarlas 
+la columna img-col contiene unicamente o va a contener la foto, pero hay que recordar que tenemos que pensar que se debe de adaptar a los diferentes tamaños dependiendo del viewport, 
+la segunda columna con la clase txt-col va a contener toda la informacion general, digamos lo que seria un about me, nombre, fecha de nacimiento, redes sociales, entre otras cosas
+en la columna img-col, que es con la que vamos a iniciar, hemo agregado las clases  d-flex y align-items-center, ambas clases son de bootstrap 4, para flexbox que ya vimos anteriormente, dentro del div img-col agregamos un div que va a ser como el contenedor digamos de la imagen de perfil, a este div le agregamos la clase personalizada img-container y las clases de bootstrap d-flex, justify-content-center, de modo que los estilos van a ser o serian display flex y justify-content-center, esto es como lo vimos anteriormente, de igual forma hemos agregado algunos estilos al elemento img, esto es para adaptarlo mejor al espacio que tenemos
+dentro del div con la clase img-container, agregamos una etiqueta img con la direccion de la imagen
+entonces para la primer columna, como hemos echo anteriormente utilizamos lo mas que podemos la clases de bootstrap 4, para acomodar o alinear nuestro elementos o para dar cierto formato, y finalmente tambien podemos agregar estilos a nuestra hoja de estilos, si lo requerimos
+dentro de la segunda columna con la clase txt-col, agregamos un div con la clase personalizada text-container, dentro de este div con la clase text-container agregamos una etiqueta h3 con lo que va a ser el nombre que queremos mostrar, a este h3 le agregamos 2 clases, una es para identificarla la cual es sect-title y la otra que es  text-uppercase que ya hemos mencionado anteriormente, esta clase es de bootstrap 4 para hacer que el texto este todo en mayusculas
+dentro de la segunda columna con la personalizada text-container, agregamos un h4 el cual tambien tiene la clase text-uppercase, este h4 va a mostrar el puesto o algo que indique a que te dedicas
+dentro de la segunda columna con la personalizada text-container, agregamos una etiqueta p o parrafo el cual no tiene ninguna clase y unicamente lo unico que mostrara sera un texto que describa mas a detalle cuales son tus activiadades o tu principal profesion, a que te dedicas, etc
+finalmente dentro de la segunda columna con la personalizada text-container, agregamos dos listas, a la primer lista le agregamos la clase definida para identificarlas la cual es basic-info, digamos que los items de esta lista van a tener informacion basica de perfil o de persona, el primer li de la lista va a mostar la fecha de nacimiento,  el segundo li de la lista va a mostar el telefono,  el tercer li de la lista va a mostar el email, y el cuarto li de la lista va a mostar la cuidad en la que resides, 
+en las etiquetas il del ul hemos utilizado iconos, estos hacen un poco mas dinamico o un poco mas visual la pagina, en la version 3 de bootstrap de echo teniamos iconos predefinidos que podriamos agregar sin necesidad de añadir referencias a librerias externas, ya que estaban añadidas en la libreria de bootstrap, a partir de bootstrap 4 ya no tenemos estos iconos y de echo en la documentacion se recomienda utilizar algunas librerias como son fontawesome, iconic, o opticons entre otras
+para este proyecto vamso a utilizar la libreria fontawesome
+nos vamos al archivo index.html, en la etiqueta head, despues de donde esta la referencia o enlace a bootstrap y antes de las referencias a los archivos .css, agregamos el enlace para la libreria fontawesome
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+ahora continuando con las listas, en la primera lista le pasamos la clase list-unstyled, esta clase es para que podamos digamos deshacernos de los estilos que a veces se agregan por defecto a una lista, por ejemplo las biñetas o algun tipo de color
+para utilizar los iconos nos vamos al siguiente link https://fontawesome.com/v5.15/icons?d=gallery&p=2, en el buscador escribimos calendar, damos clic en el que queremos utilizar, nos va a aparecer el icono, lo unico que debemos de hacer para poder utilizarlo es irnos en en la parte de arriba del icono y dar clic en la clase, y se copeara la clase 
+eso nos copeara una etiqueta i con la clase del icono y la pegamos dentro de los items li de la lista
+en la segunda lista, es similar a la primera, pero a esta lista le agregamos la clase de bootstrap 4 list-inline, esto es para indicar que mi lista sera en linea, sobe la misma linea no ira como columna, de igual forma a cada item li de la lista le debo agregar para que funcione correctamente la clase list-inline-item, dentro de cada item li de la lista agreamos una etiqueta a que va a ser la referencia a nuestra red social, dentro de cada etiqueta a agregamos iconos de font awson que va a representar la red social
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/custom.css">
+	<link rel="stylesheet" type="text/css" href="css/responsive.css">
+</head>
+<body>
+	<header class="header-area fixed-top">
+		<div class="main-menu">
+			<nav class="navbar">
+				<div class="container">
+					<ul class="nav ml-auto  mr-auto mr-md-0">
+						<li class="nav-item active"> <a class="nav-link" href="#main-info">Principal</a></li>
+						<li class="nav-item "> <a class="nav-link" href="#skills">Habilidades</a></li>
+						<li class="nav-item "> <a class="nav-link" href="#education">Educacion</a></li>
+						<li class="nav-item submenu dropdown">
+							<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Proyectos</a>
+							<ul class="dropdown-menu">
+									<li class="nav-item "> <a class="nav-link" href="#main-info">Portfolio</a></li>
+										<li class="nav-item "> <a class="nav-link" href="#main-info">GitHub</a></li>
+							</ul>
+						 </li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<section class="main-info bg-grad" id="main-info">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-md-5 col-xl-6 img-col d-flex align-items-center">
+					<div class="img-container d-flex justify-content-center">
+						<img src="" alt="">
+					</div>
+				</div>
+				<div class="col-12 col-md-7 col-xl-6 txt-col">
+					<div class="text-container">
+						<h3 class="sect-title text-uppercase">Ruben Octacvio</h3>
+						<h4 class="text-uppercase">Desarrollador Web</h4>
+						<ul class="list-unstyled basic-info">
+							<li> <i class="far fa-calendar-alt"></i>4 de Abril de 19989</li>
+							<li><i class="fas fa-phone"></i> +52 346 700 44 34</li>
+							<li><i class="fas fa-at"></i>rubenoctavio@itsn.edu.mx</li>
+							<li><i class="fas fa-map-marker-alt"></i>Mexico</li>
+						</ul>
+						<ul class="list-inline">
+							<li class="list-inline-item"><a href=""><i class="fab fa-linkedin"></i></a></li>
+								<li class="list-inline-item"><a href=""><i class="fab fa-twitter"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+</body>
+</html>
+__________________________________________________________________________
+Nos vamos a el archivo css/custom.css
+nuevamente hemos agregado estilos a la seccion de informacion general, que son bastantes pocos y bastante sencillos, la mayoria solamente son para darle un toque personalizado a lo que hemos echo, practicamente para todo hemos agregado, desde posiciones, hasta width y height, tambien font size y colores, esto es practicamente lo que hemos echo, como puedes ver hay un selector para la etiqueta section con la clase main-info, otro para el div con la clase container, y lo de mas es para los textos por ejemplo, el div con la clase text-container, y solo le agregamos margen, le especificamos un width
+ margin: 20px auto 0 auto;
+  width: 90%;
+por ejemplo para el h4 que seria el titulo que hemos puesto, unicamente le asignamos tamaño de fuente o font-size
+font-size: 16px;
+tambien lo hacemos para la etiqueta p, es decir los estilos que hemos agregado es unicamente es para que se vea mejor, bien podriamos dejarlo sin agregar estilos, pero a lo mejor no se veria tan bien
+vamos al navegador como ha quedado el front end en el tamaño por defecto que es el de dispositivos mobiles mediante la herramienta de inspeccionar, tambien podemos revisar los diversos tamaños como se ha adaptado, de echo puedes ver lo que hicimos con las columnas img-col y txt-col, para el tamaño por defecto o para tamaño mobiles utilizamos 12 el tamaño 12 para ambas columnas, cuando llegamos al tamaño md hemos utilizado 5 espacios para la primera y 7 para la segunda, y finalmente para los tamaños mas grandes o extra grandes hemos utilizado 6 espacios para la primera y 6 para la segunda, de echo no lo vamos a poder notar tanto, pero a partir de este tamaño lo que hemos echo es que ambas columnas ocupen el mismo espacio
+vemos que con poco codigo hemos logrado hacer una seccion responsiva y con un bastante buen diseño presentable
+nos vamos al archivo css/responsive.css, normalmente hasta con otras versiones de bootstrap era necesario agregar bastantes estilos, aunque nos ahorraramos algunos , era bastante necesario agregar en los responsive bastantes estilos
+en el break point del tamaño  768px, agregamos para la etiqueta section con la clase main-info agregamos un padding y un margin
+en el break point del tamaño  768px, agregamos para la div con la clase .container agregamos un  bottom: -120px;
+.main-info {
+    padding-bottom: 42px;
+    margin-bottom: 78px;
+  }
+  .main-info .container {
+    bottom: -120px;
+  }
+nuevamente esto pudimos haberlo evitado o pudimos no haberlo puesto, pero bueno para darle una mejor presentacion y tambien para la posicion con el bottom: -120px; es que lo hemos echo, como podemos ver lo que hicimos fue unicamente para el efecto que pareciera que tenemos una tarjeta o un area que esta afuera de lo de atras, digamos esta superpuesta,
+podriamos haberlo dejado sin eso, con puras clases de bootstrap como hemos visto anteriormente
+css/custom.css
+/*
+*************************************
+        | COLORS
+*************************************
+*/
+:root {
+  --blue-navy: #05205D;
+  --blue-light: #3155A7;
+  --brown-leather: #AB987A;
+  --orange-coral: #FF833D;
+  --white-egg: #F5F5F5;
+}
+/*
+*************************************
+        | HEADER
+*************************************
+*/
+.header-area .main-menu,
+.header-area .main-menu, .dropdown-menu {
+  background: var(--orange-coral);
+  box-shadow: 0 3px 16 0 rgba(0, 0, 0, .1);
+}
+.header-area .main-menu .navbar {
+  height: 70px;
+}
+.header-area .main-menu .navbar .nav-link {
+  font-size: 14px;
+  color: var(--white-egg);
+  padding: 8px;
+}
+.header-area .main-menu .navbar .nav-link:hover {
+  font-style: bold;
+  font-weight: 600;
+}
+.main-info {
+  position: relative;
+  z-index: 1;
+  padding-bottom: 42px;
+  margin-bottom: 58px;
+}
+.main-info .container {
+  border-radius: 12px;
+  position: relative;
+  bottom: -100px;
+  background: #fff;
+  padding-top: 28px;
+  padding-bottom: 28px;
+  box-shadow: 0 20px 80px 0 rgba(153, 153, 153, .3);
+}
+.main-info .container .img-col .img-container > img {
+  width: 90%;
+  height: 80%;
+}
+.main-info .container .txt-col .text-container {
+  margin: 20px auto 0 auto;
+  width: 90%;
+}
+.main-info .container .txt-col .text-container h4 {
+  font-size: 16px;
+}
+.main-info .container .txt-col .text-container p {
+  font-size: 16px;
+  color: var(--brown-leather);
+  margin-bottom: 20px;
+}
+.main-info .container .txt-col .text-container ul.basic-info {
+  padding-left: 0;
+}
+.main-info .container .txt-col .text-container ul.basic-info > li {
+  margin-bottom: 8px;
+}
+.main-info .container .txt-col .text-container ul.basic-info > li > i{
+  margin-right: 4px;
+  color: var(--blue-navy);
+}
+.main-info .container .txt-col .text-container ul.social-nw {
+  padding-left: 0;
+}
+.main-info .container .txt-col .text-container ul.social-nw > li {
+  margin-right: 20px;
+}
+.main-info .container .txt-col .text-container ul.social-nw > li i{
+  font-size: 40px;
+  color: var(--blue-navy);
+}
+___________________
+css/responsive.css
+ @media (max-width: 575.98px) {
+  .header-area .main-menu .navbar {
+    height: auto;
+  }
+}
+@media (min-width: 576px) {
+  .header-area .main-menu .navbar .nav-link {
+    padding: .5rem 1rem;
+  }
+}
+@media (min-width: 768px) {
+  .header-area .main-menu .navbar .nav-link {
+    font-size: 16px;
+  }
+  .main-info {
+    padding-bottom: 42px;
+    margin-bottom: 78px;
+  }
+  .main-info .container {
+    bottom: -120px;
+  }
+}
+@media (min-width: 992px) {}
+@media (min-width: 768px) {}
+______________________________________________________________________
+para el area de habilidades que vamos a agregar ahora a nuestra pagina o a nuestro sitio, hemos utilizado este elemento o componente de bootstrap 4 que se llama progress, es bastante interesante ya que con unas cuantas lienas, podemos mostrar lo que son barras de progreso, vamos a destacar lo que es importante hacerca del uso de estas barras de progreso, lo primero es que la clase progress la utilizamos como un wrapper o un contenedor que indicara el maximo de la barra de progreso
+nos vamos al siguiente link https://getbootstrap.com/docs/4.6/getting-started/introduction/, damos clic en components que esta de lado izquierdo, damos clic en progress, en la parte de How it works podemos ver que el maximo de la barra de progreso es el area gris que podemos obserbar en esta parte, siempre debe de existir un div con la clase progress, que va a ser el contenedor, la clase .progress-bar debe de ir en un elemento dentro del elemento progress que mencionamos anteriormente y este si va a indicar el progreso, este es digamos la seccion azul que vemos en la parte How it works
+en el codigo que esta en la parte How it works, podemos ver el div con la clase progress y dentro de este div esta el div con la clase .progress-bar
+ademas a este elemento le debemos de agregar un estilo, ya sea en el html  o en el css que indique el width, tambien se debe indicar un atributo role y area que vamos a ver mas a delante
+todas estas indicaciones que he mecionado las podemos observar en estos ejemplos que tenemos en la parte de How it works
+donde tenemos el div parent que se menciono con la clase progress, y el div child con sus respectivas clases que es progress-bar y los atributos que debemos indicar
+para todos los divs child se deben de agregar la clase progress-bar en general, para todos se debe indicar igualmente un atributo role="progressbar", debemos indicar como se menciono en las indicaciones el estilo o el width que va a tener progressbar, por ejemplo vemos en la parte How it works de la documentacion que en el primero no lo indicamos, por lo tanto se ve vacio, en el segundo indicamos un estilo con un width de 25%, el tercero tiene el 50%, y asi podemos indicar dependiendo de como queremos que luzca nuestra barra de progreso
+el atributo aria-valuenow="0" tambien lo tenemos en el div child, le tenemos que indicar que va a tener el mismo valor que el widht, pero este es mas bien para indicar en terminos numericos cual es el valor actual de la barra de progreso
+el atributo  aria-valuemin="0" es para indicar si la barra debe de tener un valor minimo, por ejemplo si yo quiero que la barra no pueda ser menor de 10, en este atributo lo indicariamos, vemos que en todos los ejemplos los tenemos en 0
+finalmente el atributo aria-valuemax="100", con este atributo especificamos tambien un valor maximo, en los que tenemos como ejemplo indicamos como 100 el valor maximo
+en la parte Labels de la documentacion, podemos ver que a las barras de progreso tambien le podmeos añadir lo que son Labels o etiquetas, por ejemplo lo mas comun es indicar en esta label el progreso total, esto lo hacemos poniendo el texto que deseamos dentro del div con la clase progress-bar, vemos que tenemos la estructura que ya conocemos y dentro del div progress-bar hemos agregado el label  
+como podemos ver en el ejemplo, ya podemos ver el valor que agregamos dentro del div
+vemos en la parte Height de la documentacion, que tambien para un progres bar podemos añadir o indicar el Height, esto de debe de hacer en el div parente que ya conocemos y el div child se va a adaptar, vemos el ejemplo, el div parent con la clase progress tiene un estilo definido con un height de un pixel, height: 1px;, al segundo como podemos ver al child no le tenemos que indicar el height ya que va a tomar por defecto el del parent, este height tambien los puedes definir dentro de un css no es necesario que sea en el html
+vemos en la parte Backgrounds de la documentacion, vemos que tambien tenemos Backgrounds que son los colores que conocemos de bootstrap, los podemos utilizar con las clase de siempre para definir un color o un Background color en nuestras barras, por ejemplo en el div child vamos a indicar la clase, en este caso en el ejemplo bg-success es la primera que vemos con el color verde, bg-info, bg-warning, bg-danger o cualquiera de los colores que ya conocemos de bootstrap 4
+en la parte Multiple bars de la documentacion, vemos otra opcion que tenemos con este componenete de bootstrap 4 son las digamos multiples barras de progreso, que es para añadir diferentes valores dentro de un mismo parent, es decir si quisieramos indicar diversos progresos dentro de un mismo contenedor lo hacemos de esta forma, unicamente el div parent que ya conocemos y en lugar de tener un child, vamos a agregarle varios child con los atributos que tambien ya conocemos
+en la parte Striped de la documentacion, vemos otra forma en la que podemos variar nuestros progress bar es agregando un rallado o Striped, esto es bastante sencillo y tambien lo hacemos como muchas cosas en bootstrap 4, con una clase, en este caso la clase es progress-bar-striped, eso es todo lo que tenemos que hacer, mas aparte se indica el color que queremos que sea de fondo bg-success mas la clase que indica que va a ser rallado progress-bar-striped
+en la parte Animated stripes de la documentacion, vemos que finalmente como parte de este componente tenemos las lineas animadas, que es basicamente para darle una animacion a la barra, si le damos clic al boton toogle animation podemos observarlo, no necesitamos agregar nada de java script ni nada por el estilo, simpelmente agregamos la clase progress-bar-striped y la clase progress-bar-animated que es la que va a ser el efecto de animacion
+__________________________________________________________________________
+ya que conocemos el componente progress y sabemos como utilizarlo, vamos a agregarlo a nuestro sitio web
+estos progress los vamos a agregar para representar las habilidades y el porcentaje que tenemos de conocimiento en estas
+nos vamos al archivo index.html, en el body, despues de la etiqueta section con la clase main-info
+primero agregamos una etiqueta section, dentro de esta agregamos una etiqueta div con la clase contaianer, dentro de esta agregamos un div con la clases head-content d-flex align-items-baseline, esta area va a indicar el titulo de esta area que en este caso es habilidades, despues de esta agregamos un div con clase row que es la fila que va a contener 2 columnas nuevamente
+en la primer columnas o div vamos a indicar las habilidades especificas de desarrollo de software, entonces dentro de este divo o columna le agregamos la clase skills-col para identificarla, dentro esta agregamos un subtitulo una etiqueta h4, tambien dentro de la columna con la clase skills-col vamos a tener unos divs con clase skill-item que tambien hemos definido para poder identificarlo y para poder acomodar cada unos de los progress, dentro de cada uno de estos elementos agregamos un parrafo o etiqueta o  que va a ser el nombre de la habilidad, despues del parrafo agregamos lo que es la estructura del progress, que es un div el cual es el div parent con la clse progress y dentro de este el div child con la clase progress-bar
+al div child con la clase progress-bar le definimos un estilo con un widht igual al valor de la habilidad, tambien el atributo que contiene el valor actual, en este caso es 98, aria-valuenow="98", un atributo con el valor minimo que es 0, aria-valuemin="0", y un atributo con el valor maximo igual a 100, aria-valuemax="100", nuevamente tambien definimos un label para este elemento, la definimos dentro del div con la clase progress-bar
+esto se va repetir para cada una de las habilidades que quieras mostrar, simplemente copeamos el div, y lo unico que vamos a cambiar va a ser en el segundo div, pues el nombre de la habilidad, y los valores que va a tener cada atributo de nuestro progress-bar 
+copeamos el div con las clases skill-cols col-12 col-md-6, le cambiamos el texto del h4 de habilidades a otras, y modificamos cada habilidad
+si queremos observar el comportamiento que tiene esta seccion de habilidades, en cuanto a el diseño responsivo, presionasmo fn-f12, movemos la barra de la herramienta inspeccionar hasta el tamaño de 700 y cacho pixeles, va a seguir en 2 columnas, una arriba y una bajo, esto es el comportamiento de las columnas que ya conocemos, y al llegar al break point de md o mediano, se van a devidir en 2 columnas, las 2 columnas seguidas o pegadas, nuevamente hemos echo esto con el grid system de bootstrap, e igual se puede adaptar con tamaños mas grandes, recuerd a que la primera version debe estar enfocada en el tamaño extra chico o en el tamaño de dispositivos mobiles, podemos ir tambien al codigo, para comprobar lo que tenemos
+dentro del container el nombre de la seccion, en este caso es habilidades, las columnas nuevamente, las dos columnas, ambas con la misma clase skills-col, y buen ya el contenido de cada columna que siempre va a ser, el nombre de la habilidad y la barra de progreso, y asi se repite dependiendo de cuantas barras de progreso necesitemos
+en nuestro archivo css/custom.css no agregamos casi ningun estilo, todo lo hemos echo con bootstrap
+la siguiente clase es unicamente para darle un poco de espacio a cada uno de los items, a cada uno de las habilidades que tenemos
+ .skill-item{
+    margin-bottom: 24px;
+  }
+el p con la clase text, tambien para que no se pege el nombre de la habilidad con la barra de progreso, que tenga cierto espacio, unicamente agregamos un margen
+ .skill-item .text{
+margin-bottom: 8px;
+  }
+y finalmente para el .progress-ba, si observamos no estoy utilizando un color de los que ye estan predefinidos por bootstrap 4, lo que he echo es agregar gradientes en los estilos, con los colores que ya tenemos definidos anteriormente con variables
+.skill-item .progress .progress-bar{
+    height: 10px;
+    border-radius: 5px;
+    vertical-align: middle;
+    align-self: center;
+    background-image: -moz-linear-gradient(0deg, var(--blue-light) 0%, var(--brown-leather)0%);
+    background-image:  -webkit-linear-gradient(0deg, var(--blue-light) 0%, var(--brown-leather)0%);
+     background-image:  -ms-linear-gradient(0deg, var(--blue-light) 0%, var(--brown-leather)0%);
+
+
+  }
+archivo index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/custom.css">
+	<link rel="stylesheet" type="text/css" href="css/responsive.css">
+</head>
+<body>
+	<header class="header-area fixed-top">
+		<div class="main-menu">
+			<nav class="navbar">
+				<div class="container">
+					<ul class="nav ml-auto  mr-auto mr-md-0">
+						<li class="nav-item active"> <a class="nav-link" href="#main-info">Principal</a></li>
+						<li class="nav-item "> <a class="nav-link" href="#skills">Habilidades</a></li>
+						<li class="nav-item "> <a class="nav-link" href="#education">Educacion</a></li>
+						<li class="nav-item submenu dropdown">
+							<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Proyectos</a>
+							<ul class="dropdown-menu">
+									<li class="nav-item "> <a class="nav-link" href="#main-info">Portfolio</a></li>
+										<li class="nav-item "> <a class="nav-link" href="#main-info">GitHub</a></li>
+							</ul>
+						 </li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<section class="main-info bg-grad" id="main-info">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-md-5 col-xl-6 img-col d-flex align-items-center">
+					<div class="img-container d-flex justify-content-center">
+						<img src="" alt="">
+					</div>
+				</div>
+				<div class="col-12 col-md-7 col-xl-6 txt-col">
+					<div class="text-container">
+						<h3 class="sect-title text-uppercase">Ruben Octacvio</h3>
+						<h4 class="text-uppercase">Desarrollador Web</h4>
+						<p>Desarrollo</p>
+						<ul class="list-unstyled basic-info">
+							<li> <i class="far fa-calendar-alt"></i>4 de Abril de 19989</li>
+							<li><i class="fas fa-phone"></i> +52 346 700 44 34</li>
+							<li><i class="fas fa-at"></i>rubenoctavio@itsn.edu.mx</li>
+							<li><i class="fas fa-map-marker-alt"></i>Mexico</li>
+						</ul>
+						<ul class="list-inline social-rw">
+							<li class="list-inline-item"><a href=""><i class="fab fa-linkedin"></i></a></li>
+								<li class="list-inline-item"><a href=""><i class="fab fa-twitter"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+	<section>
+<div class="container">
+	<div class="head-content d-flex align-items-baseline">
+		<h4>Hbilidades</h4>
+			</div>
+		<div class="row" id="skill-content">
+			<div class="skill-cols col-12 col-md-6">
+				<h4 class="sect-subtitle">Desarrollo de Software</h4>
+				<div class="skill-item"><p class="text">Laravel</p>
+<div class="progress">
+	<div class="progress-bar" role="progressbar" style="width: 78%" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100">78%</div>
+</div>
+				</div>
+				<div class="skill-item"><p class="text">Django</p>
+<div class="progress">
+	<div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+</div>
+				</div>
+
+			</div>
+			<div class="skill-cols col-12 col-md-6">
+				<h4 class="sect-subtitle">Otras</h4>
+				<div class="skill-item"><p class="text">Inges</p>
+<div class="progress">
+	<div class="progress-bar" role="progressbar" style="width: 78%" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100">78%</div>
+</div>
+				</div>
+				<div class="skill-item"><p class="text">Photosop</p>
+<div class="progress">
+	<div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+</div>
+				</div>
+
+			</div>
+			<div></div>
+		</div>
+
+</div>
+	</section>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+</body>
+</html>
+______________________________________________________________________
+las tarjetas o componente card, de bootstrap 4 son elementos que permiten agrupar diversos tipos de informacion o elementos en su interior, es basicamente un contenedor que incluye opciones para agregar elementos como header, footer, imagenes, botones, entre otros, las cards de bootstrap 4 sustituyen los paneles o panels y thumbnails de bootstrap 3, nuevamente estos elementos estan construidos o basados en flexbox, por lo que son bastante faciles de acmodar como ya hemos visto, 
+ademas estos elementos no contienen margen por defecto y no tienen un width definodo tampoco por defecto, por lo tanto su width sera igual al del parent o al que le definamos nosotros, 
+nos vamos al sigueinte link https://getbootstrap.com/docs/4.6/getting-started/introduction/ damos clic en la seccion de components que esta a la izquierda, damos clic en card, en la parte de Example, vemos un div con la clase card, este div va a ser el parent, en este div se define un width en el estilo  style="width: 18rem;", por que como mencionabamos no va a tener un widht si no lo definimos y por lo tant se expanderia hasta toda el area, entonces tenemos que definir el width ya sea por medio de html o css, vemos que dentro de este div tenemos una imagen que podriamos agregar, lo que quiero decir es que no es necesariamente una imagen lo que se agrega en un card, esto va a depender del contenido que quieras mostrar o acomodar alli, en este caso si se tiene una imagen, a esta imagen se debe agregar la clase card-img-top, el top indica que va a estar en la parte superior, 
+tambien dentro de este card tenemos un div con la clase card-body que es uno de los elementos o tipo de contenido que se tiene en los card, 
+dentro del div con la clase card-body, hay un h5 con la clase card-title, que es otro tipo de contenido
+dentro del div con la clase card-body, hay un p con la clase card-text, que es otro tipo de contenido, en este caso es un parrafo  
+dentro del div con la clase card-body, hay un boton, y se le agregan las clases regulares para botones de boostrap btn btn-primary, no es propiamente un boton exclusivo o definodo por la clase card
+<div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+bien este seria un ejemplo, hay bastantes tipos de contenidos que se pueden agregar a un card, dependiendo de como te decia el contenido que tu quieras mostrar, por ejemplo 
+nos vamos a la parte Content types de la documentacion, en la parte Body, vemos tambien un card y como observamos se ve muy diferente al anterior, este se parece que esta ocupando todo el espacio por que no tiene un width definido y unicamente tiene un body con un texto en su interior
+<div class="card">
+  <div class="card-body">
+    This is some text within a card body.
+  </div>
+</div>
+en la parte Titles, text, and links de la documentacion, vemos que tambien tenemos titulos, textos y links, como puedes observar al utilizar las clases que ya estan definidas le da un estilo bastante simple pero acorde a lo que se esta haciendo, y si estas haciendo algo sencillo no requieres de agregarles mas estilos como hemos visto anteriormente, unicamente con utilizar las clases ya definidas por ejemplo, el .card-title o el card-body o el card-link, ya de esta forma utilizando estas clase nos va a acomodar y a dar el estilo, como lo vemos en este ejemplo
+en la parte Images de la documentacion, vemos que para las imagenes, lo que habiamos mencionado la clase .card-img-top por ejemplo para agregarla, si observamos el ejemplo del card vemos que el body cambia, ya que no tiene un boton dentro, pero tambien los podemos hacer, las tarjetas son elementos muy flexibles, podemos acomodar los elementos que necesitemos como mejor nos sirva
+en la parte List groups de la documentacion, podemos ver que podemos crear grupos o listas de grupos, vemos que agrupamos listas dentro de una tarjeta para darle este tipo de presentacion
+en la parte Kitchen sink de la documentacion, vemos que hay muchas opciones interesantes como las de agregar un header y footer, a este elemento a cada card, ya que van a dar otra apariencia totalmente distinta a lo que hemos visto hasta ahora, y lo podemos utilizar para mostrar cierto tipo de contenido de manera ordenada por ejemplo,
+nos vamos a la parte Header and footer de la documentacion, vemos que el card de ejemplo tiene un header y nuevamente da una pariencia distinta, tambien podemos agregar elementos si asi lo rquerimos que no esten definidos, digamos como parte de un elemento card, es decir que no sea un card-title por ejemplo, lo podriamos agregar unicamente agregando estilos que hagan que se acomoden al elemento card 
+vemos mas ejemplos despues del primer ejemplo, vemos que el segundo ejemplo tambien tiene un header, el tercer ejemplo es uno muy comun que he visto en sitios para buscar Quote o citas, podemos utilizar las tarjetas, el cuarto ejemplo es una tarjeta un poco mas avanzada, ya que utiliza algunas clases combinadas de echo, por ejemplo text-center, para centrar el texto que ya es de las utilities de bootstrap 4
+y asi, hay muchisimas opciones para personalizar los elementos card, dependiendo del contenido que quieras mostrar y como lo quieras acomodar, ademas como siempre lo puedes personalizar agregando tus estilos
+_______________________________________________________________
+vamos a continuar con la seccion del portafolio o lo que serian los proyectos destacados, esta seccion va a ser bastante similar a la seccion que agregamos anteriormente de habilidades,
+a que me refiero que es parecida?, me refiero a su estructura
+nos vamos al archivo index.html, despues de la etiqueta section de las habilidades, agregamos una etiqueta section que hemos utilizado para dividir cada seccion, con su respectivo id, en este caso portafolio, tambien le agregamos la clase bg-grad-b que la hemos definido para agregar un background gradiente, diferente al que ya hemos definido antes
+dentro de la etiqueta section agregamos un div con la clase container, esto es igual a la seccion de skills donde teniamos algo igualito pero con el nombre de habilidades, en este caso en esta seccion lo que tengo es el titulo que es proyectos destacados
+<div class="container">
+			<div class="head-content d-flex align-items-baseline">
+		<h3 class="sect-title">Proyectos destacados</h3>
+			</div>
+		</div>
+despues del div con la clase container, agregamos un div con la clase container-fluid, esto ya los vimos anteriormente pero es para que el width de este sea completamente el del mismo width del viewport, tambien al div le agregamos un id el cual es portafolio-content
+dentro del div con la clase container-fluid, agregamos un div el cual va a ser un contenedor el cual va a tener todos los cards, a este div le agregamos la clase personalizada card-container, tambiena  este div añadimos nuevamente las clases que ya conocemos de flexbox de bootstrap 4, con d-flex indicamos que va a ser un display flex, con flex-wrap indicamos que el orden o como se va a ajustar va a ser wrap, con esta clase justify-content-around indicamos que el contenido se va a justificar con espacio al rededor, y final mente con la clase align-items-center indicamos que la alineacion de los elementos verticalmente hablando va a ser centrada, 
+dentro del div con la clase card-container, agregamos los cards que necesitamos, vamos a agregar 4 elementos practicamente iguales, cada card en este caso tiene un card-body que ya hemos visto, que es el tipo de contenido que o un tipo de contenido que existe para las tarjetas, 
+dentro del div con la clase card-body, agregamos un icono de los de fontawson que ya conocemos, en este caso es para representar el proyecto que estamos mostrando en esta tarjeta, en este caso mostramos una tarjeta de credito  
+dentro del div con la clase card-body, despues del icono, agregamos una etiqueta h5 con la clase card-title, y este va a representar el titulo del proyecto que estoy mostrando, en este caso el texto dice sistema de pagos, tu puedes poner el proyecto que prefieras
+dentro del div con la clase card-body, despues del h5 con la clase card-title, agregamos una etiqueta p con la clase card-text, tambien definido para elementos card, y bueno en el texto deberiamos de poner la descripcion del proyecto
+dentro del div con la clase card-body, despues del p con la clase card-text, finalmente agregamos una etiqueta a con las clases, en el cual puedes indicar que se puede ir al sitio web o a donde prefieras, donde este tu proyecto, en algunos pasos podria ser que este en github en una tiende de aplicaciones
+esta parte es la que ya conocemos o vimos anteriormente, de como se estructura una tarjeta o un card, repetimos los mismo para cada uno de los proyectos que queramos mostrar
+bueno por ejemplo en algun caso en la etiqueta a podemos ponerle en el texto descargar extension, si tienes otro tipo de proyecto o descargar aplicacion, pero practicamente la estructura es la misma, la que ya hemos visto que podemos modificar o personalizar cuanto queramos en cuanto a los card
+y en cuanto a los estilos de esta seccion, solo hemos agregado 3, 
+nos vamos al archivo css/custom.css, al final del archivo agregamos una clase el cual el primer selector card-container .card va a ser para designar un max-width: de 360px para los elementos card, si recuerdas vimos que los elementos card no tienen un width definido, por lo tanto se puede definir un max-width, tambien podriamos definir un width digamos definido, pero lo hemos echo de esta forma para que se adapte y solamente no se pase de los 360px que necesitamos, tambien en esta clase agregamos un margen para que se separe si se pasan algunos para abajo, que seguramente va a pasar en tamaños pequeños margin-top: 16px;, 
+nos vamos al archivo css/custom.css, al final del archivo agregamos una clase el cual tiene el selector .card-container .card i, este selector es para el icono, en este caso lo estamos poniendo con un tamaño de fuente de 80px, font-size: 80px; y del color que ya conocemos el azul obscuro, color: var(--blue-navy);
+nos vamos al archivo css/custom.css, al final del archivo agregamos una clase el cual tiene el selector .card-container .card h5, este selector es para la etiqueta h5 que va a ser el titulo del proyecto, pues nada mas hemos definido ciertas caracteristicas como los margenes,   margin-top: 12px;, margin-bottom: 8px; y cierta opacidad opacity: 0.8;, como puedes ver no son estilos muy complejos, nuevamente es para darle nada mas un toque personalizado
+y en cuanto a los responsivos
+nos vamos al archivo css/responsive.css, agregamos en el break point para tamaños a partir de 576px, agregamos una clase con el selector .card-container .card, pues hemos definido en la clase un max-width: 240px; para la tarjeta ya que no quiero que se haga tan grande como la que defini por defecto que era 360px
+y para otros tamaños le he dado diferente width maximo, es todo lo que he echo, dependiendo del width del viewport he definodo un tamaño maximo para los elementos card,
+por lo que hemos definido los max width de los cards, es para que tengan digamos una mejor presentacion, no se expandan, no se hagan muy muy grandes en dispositivos grandes, o muy pequeños en dispositivos pequeños
+igual en los tamaños mas grandes vemos como los card cumplen con su funcion de adaptarse, y de funcionar correctamente agregando pocos estilos y pocas clases
+archivo css/custom.css
+.card-container .card{
+max-width: 360px;
+margin-top: 16px;
+}
+.card-container .card i{
+font-size: 80px;
+color: var(--blue-navy);
+}
+.card-container .card h5{
+  margin-top: 12px;
+  margin-bottom: 8px;
+  opacity: 0.8;
+
+}
+____________________________________________
+archivo css/responsive.css
+@media (max-width: 575.98px) {
+  .header-area .main-menu .navbar {
+    height: auto;
+  }
+}
+@media (min-width: 576px) {
+  .header-area .main-menu .navbar .nav-link {
+    padding: .5rem 1rem;
+  }
+  .card-container .card{
+max-width: 240px;
+
+}
+}
+@media (min-width: 768px) {
+  .header-area .main-menu .navbar .nav-link {
+    font-size: 16px;
+  }
+  .main-info {
+    padding-bottom: 42px;
+    margin-bottom: 78px;
+  }
+  .main-info .container {
+    bottom: -120px;
+  }
+    .card-container .card{
+max-width: 360px;
+
+}
+}
+@media (min-width: 992px) {
+	  .card-container .card{
+max-width: 240px;
+
+}
+}
+@media (min-width: 768px) {
+	  .card-container .card{
+max-width: 360px;
+
+}
+}
+________________________________
+archivo index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/custom.css">
+	<link rel="stylesheet" type="text/css" href="css/responsive.css">
+</head>
+<body>
+	<header class="header-area fixed-top">
+		<div class="main-menu">
+			<nav class="navbar">
+				<div class="container">
+					<ul class="nav ml-auto  mr-auto mr-md-0">
+						<li class="nav-item active"> <a class="nav-link" href="#main-info">Principal</a></li>
+						<li class="nav-item "> <a class="nav-link" href="#skills">Habilidades</a></li>
+						<li class="nav-item "> <a class="nav-link" href="#education">Educacion</a></li>
+						<li class="nav-item submenu dropdown">
+							<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Proyectos</a>
+							<ul class="dropdown-menu">
+									<li class="nav-item "> <a class="nav-link" href="#main-info">Portfolio</a></li>
+										<li class="nav-item "> <a class="nav-link" href="#main-info">GitHub</a></li>
+							</ul>
+						 </li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<section class="main-info bg-grad" id="main-info">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-md-5 col-xl-6 img-col d-flex align-items-center">
+					<div class="img-container d-flex justify-content-center">
+						<img src="" alt="">
+					</div>
+				</div>
+				<div class="col-12 col-md-7 col-xl-6 txt-col">
+					<div class="text-container">
+						<h3 class="sect-title text-uppercase">Ruben Octacvio</h3>
+						<h4 class="text-uppercase">Desarrollador Web</h4>
+						<p>Desarrollo</p>
+						<ul class="list-unstyled basic-info">
+							<li> <i class="far fa-calendar-alt"></i>4 de Abril de 19989</li>
+							<li><i class="fas fa-phone"></i> +52 346 700 44 34</li>
+							<li><i class="fas fa-at"></i>rubenoctavio@itsn.edu.mx</li>
+							<li><i class="fas fa-map-marker-alt"></i>Mexico</li>
+						</ul>
+						<ul class="list-inline social-rw">
+							<li class="list-inline-item"><a href=""><i class="fab fa-linkedin"></i></a></li>
+								<li class="list-inline-item"><a href=""><i class="fab fa-twitter"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+	<section>
+<div class="container">
+	<div class="head-content d-flex align-items-baseline">
+		<h4>Hbilidades</h4>
+			</div>
+		<div class="row" id="skill-content">
+			<div class="skill-cols col-12 col-md-6">
+				<h4 class="sect-subtitle">Desarrollo de Software</h4>
+				<div class="skill-item"><p class="text">Laravel</p>
+<div class="progress">
+	<div class="progress-bar" role="progressbar" style="width: 78%" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100">78%</div>
+</div>
+				</div>
+				<div class="skill-item"><p class="text">Django</p>
+<div class="progress">
+	<div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+</div>
+				</div>
+
+			</div>
+			<div class="skill-cols col-12 col-md-6">
+				<h4 class="sect-subtitle">Otras</h4>
+				<div class="skill-item"><p class="text">Inges</p>
+<div class="progress">
+	<div class="progress-bar" role="progressbar" style="width: 78%" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100">78%</div>
+</div>
+				</div>
+				<div class="skill-item"><p class="text">Photosop</p>
+<div class="progress">
+	<div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+</div>
+				</div>
+
+			</div>
+			<div></div>
+		</div>
+
+</div>
+	</section>
+	<section class="sect portafolio bg-grad-b" id="portafolio">
+		<div class="container">
+			<div class="head-content d-flex align-items-baseline">
+		<h3 class="sect-title">Proyectos destacados</h3>
+			</div>
+		</div>
+		<div class="container-fluid" id="portafolio-content">
+<div class="card-container d-flex flex-wrap justify-content-around align-items-center">
+	<div class="card">
+<div class="card-body">
+	 <i class="fas fa-credit-card"></i>
+	 <h5 class="card-title">Sistema de pagos</h5>
+	 <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing, elit. Nesciunt doloremque quam, autem repellendus inventore, fugiat possimus? Sint quibusdam, voluptatibus eos illo, officia error aliquam deleniti quis possimus, consequuntur temporibus delectus.</p>
+	 <a href="" class="btn btn-primary">ir al sitio web</a>
+</div>
+	</div>
+	<div class="card">
+<div class="card-body">
+	 <i class="fas fa-credit-card"></i>
+	 <h5 class="card-title">Sistema de pagos</h5>
+	 <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing, elit. Nesciunt doloremque quam, autem repellendus inventore, fugiat possimus? Sint quibusdam, voluptatibus eos illo, officia error aliquam deleniti quis possimus, consequuntur temporibus delectus.</p>
+	 <a href="" class="btn btn-primary">ir al sitio web</a>
+</div>
+	</div>
+	<div class="card">
+<div class="card-body">
+	 <i class="fas fa-credit-card"></i>
+	 <h5 class="card-title">Sistema de pagos</h5>
+	 <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing, elit. Nesciunt doloremque quam, autem repellendus inventore, fugiat possimus? Sint quibusdam, voluptatibus eos illo, officia error aliquam deleniti quis possimus, consequuntur temporibus delectus.</p>
+	 <a href="" class="btn btn-primary">ir al sitio web</a>
+</div>
+	</div>
+	<div class="card">
+<div class="card-body">
+	 <i class="fas fa-credit-card"></i>
+	 <h5 class="card-title">Sistema de pagos</h5>
+	 <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing, elit. Nesciunt doloremque quam, autem repellendus inventore, fugiat possimus? Sint quibusdam, voluptatibus eos illo, officia error aliquam deleniti quis possimus, consequuntur temporibus delectus.</p>
+	 <a href="" class="btn btn-primary">ir al sitio web</a>
+</div>
+	</div>
+</div>
+		</div>
+	</section>
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+</body>
+</html>
+______________________________________________________
+El componente collapse es uno de los mas interesantes, y de echo es de los que mas se utilizan en el trabajo como desarrollador, este componenete es de los que te va a ahorrar bastante tiempo, ya que normalmente para lograr esta funcionalidad sin bootstrap, se requeriria java script, en el caso de bootstrap 4 tambien utiliza el plugin de java script, pero es mucho mas facil de utilizar para nosotros que si lo hicieramos desde 0
+que es collapese y para que sive?
+como su nombre lo indica, el collapse nos va a ayudar cuando queremos que el usuario pueda collapsar cierto elemento, ya sea para mostrar o para ocultar cierta area o cierto componenete, podemos decir que un elemento de este tipo collapse tendra 3 estados, representados por una clase cada uno, 
+nos vamos al siguiente link https://getbootstrap.com/docs/4.6/, damos clic en la seccion de componentes que esta a la izquierda, despues damos clic en la seccion collapse
+en la parte Example de la documentacion vemos las 3 clases que mencionamos anteriormente
+la clase .collapse, esta va a ocultar o colapsar el contenido
+la clase .collapsing, esta clase se asigna al elemento durante la transicion, es decir mientras se esta cerrando o mientras se esta abriendo, 
+y finalmente la clase .collapse.show, esta aparece o se asignara al elemento cuando se muestra el contenido, 
+en el ejemplo de la parte Example de la documentacion, se estan utilizando diferentes elementos como trigger del collapse, tenemos un boton y una etiqueta a o anchor, para que ambos elementos funcionene de esta forma, lo que se ha echo es agregar ciertos atributos
+por ejemplo, la primera etiqueta a con el texto Link with href, las clases que tiene esta etiqueta son las que ya conocemos de los botones de bootstrap, btn btn-primary, pero lo que lo hace especial o lo que hace funcionar a este elemento como un trigger de un collapse son los atributos que se le agregan por ejemplo, el atributo data-toggle="collapse" que indica que lo que va a haser o la accion que haga sera un collapse, luego tenemos el atributo href="#collapseExample" que en lugar de ser un link a una pagina por ejemplo, contiene el id del elemento que queremos collapsar, con el atributo role="button" le asignamos un rol boton, el atributo aria-expanded="false" quiere decir que va a estar collapsado en ese momento, no va a estar abierto por defecto, y finalmente el atributo aria-controls="collapseExample"  hace referencia al id del elemento que queremos collapsar
+para el boton que es la segunda etiqueta, con el texto Button with data-target, las clases que tiene el boton son las mismas para los botones btn btn-primary, el atributo tipo es boton type="button", y los demas atributos son bastante similar a lo que tenemos en la etiqueta a o anchor, en este caso el atributo data-toggle="collapse"  es igual, el atributo data-target="#collapseExample" hace referencia al id del elemento que vamos a querer colapsar, el atributo aria-expanded="false" que ya habiamos visto tambien en el anchor, y el atributo aria-controls="collapseExample" que es igual tambien al del anchor
+despues de la etiqueta a y el boton, vemos el div que se quiere colapsar, lo que si se asigna a este div o se debe de asignar necesariamente es un div de clase collapse, y un id que es con el que se va a hacer referencia desde los elementos que van a ser los trigger
+debido a que el atributo data-target puede representar una clase o un id, podemos indicar varios targets a la vez, es por eso que podemos tener multiples targets como lo vemos en la parte Multiple targets de la documentacion
+esto lo hacemos simplemente utilizando en lugar de una id en data-target, como lo hicimos en el ejemplo anterior, vamos a utilizar una clase, por lo tanto cuando demos clic en el elemento, se van a colapsar todos los elementos que tengan la clase multi .multi-collapse
+recuerdas el componente que vimos anteriormente? es el componente card, bueno pues en la parte Accordion example de la documentacion, vemos que podemos combinar este componente con el collapse de forma que logremos por ejemplo, un acordion como se observa en este ejemplo, 
+para ello se van a agregar elementos card como ya los conocemos, con sus respectivos child, dependiendo de lo que queramos, y se deben de agregar tambien los elementos que queremos que sean el trigger, por ejemplo vemos un div con la clase card, pero dentro tambien vemos botones, los botones van a tener los atributos que ya conocemos, para hacer funcionar los cards como un collapse, 
+vemos que los atributos type="button", el atributo  data-toggle="collapse", y el data-target="#collapseOne" tambien se indica, al igual que el aria-expanded="true, como podemos ver aria expanded esta en true, esto quiere decir que por defecto va a estar mostrandose o va a estar no collapsado el elemento 
+bueno y de esta forma podemos combinar diversos elementos o componentes, como son los card y tambien el collapse
+nos vamos a la parte Usage de la documentacion, vemos que en cuanto al uso del collapse podemos ver algunas variasiones, de echo en algunas ocaciones vamos a requerir que nuestro efecto de colapsar, no ocurra necesariamente cuando el usuario da clic, por ejemplo podemos necesitar que se despliegue un area al cargar la pagina  o al llegar a cierto punto en el schroll de una pagina, para esto podemos manipular nuestro elemento collapsable por medio de java script
+esto lo hacemos de una forma bastante sencilla, lo primero es habilitar el modo manual de collapse de nuestro elemento, esto lo hacemos con la siguiente linea $('.collapse').collapse(), simplemente es una linea de codigo en donde se puede indicar con la clase o con el id  especifico, del elemento que queremos  collapsar como selector, en este caso se utilizo la clase collapse, de esa forma hemos habilitado el modo manual, 
+en la parte Methods de la documentacion, vemos que podemos utilizar metodos, por ejemplo el metodo .collapse('toggle'), lo vamos a usar en caso de que queramos que se muestre o collapse el contenido del elemento, dependiendo del estado actual, es decir si esta cerrado al ejecutar este metodo el elemento se desplegara y viceversa
+en caso de que necesariamente queramos mostrar o desplegar el contenido del elemento collapsable, nuestro metodo que utilizaremos va a ser .collapse('show')
+si queremos que se colapse en caso de que este desplegado nuestro elemento, entonces utilizamos el metodo .collapse('hide')
+finalmente si queremos destruir nuestro elemento, utilizamos el metodo .collapse('dispose')
+en la parte Events de la documnetacion, podemos ver que tambien podemos utilizar los eventos que se muestran en la tabla, para realizar alguna accion o ejecutar un metodo cuando ocurra uno de estos eventos, en caso de que al desplegarse el elemento se muestre alguna alerta, para ello utilizaremos un codigo similar al siguiente
+$('#myCollapsible').on('hidden.bs.collapse', function () {
+  // do something...
+})
+pero en lugar de utilizar el evento hidden.bs.collapse, utilizaremos el evento shown.bs.collapse, exactamente como esta en el ejemplo anterior, con el id del elemetno por supuesto, y con el evento o el tipo de evento que hemos mencionado
+$('#myCollapsible').on('shown.bs.collapse', function () {
+  // do something...
+})
+el primer evento show.bs.collapse, se va a ejecutar exactamente cuando demos clic en el trigger o cuando la instancia show sea llamada, es decir cuando llamemos este metodo .collapse('show'), cuando lo invoquemos
+el evento shown.bs.collapse, que si ves solo cambia por una letra, la letra n, va a ser un evento, que sea digamos ejecutado, cuando el elemento ha terminado de ser visible, es decir cuando se termino de hacer la transicion de oculto a mostrado
+lo mismo ocurre con el evento hide.bs.collapse, hide.bs.collapse es desde que el metodo de ocultar .collapse('hide') ha sido llamado 
+y el evento hidden.bs.collapse, va a ser cuando el elemento ha sido completamente collapsado o ocultado
+estos son los eventos que podemos utilizar y esta es la forma en que combinamos java script y utilizamos el plugin de java script de bootstrap 4 para el elemento o el componente collapse
+_________________________________________________________________________________________________________________
+como recordaras, en nuestro proyecto tenemos 2 secciones ademas de la seccion general, tenemos la seccion de habilidades o skills y la seccion de portafolio o proyectos destacados, que pasaria si quiero hacer que estas secciones sean colapsables? es decir que solo se muestre el titulo por ejemplo y que a partir de este, el usuario pueda dar clic para desplegarlo, esto normalmente se utiliza cuando queremos hacer paginas que no sean muy largas por defecto, y que el usuario vaya desplegando de acuerdo a su necesidad, 
+esto lo vamos a hacer bastante sencillo
+nos vamos al archivo index.html, en la etiqueta section con el id portafolio, el div con la clase head-content que unicamente contenia el h3 con la clase sect-title, y en este teniamos el titulo de la seccion, bien, pues para hacer que esto sea colapsable, unicamente vamos a tener que agregar un boton dentro del div con la clase head-content, este boton tiene la clase btn que ya conocemos de bootstrap, y debemos de definir los atributos necesarios para que se comporte como un trigger de un elemento collapsable
+entonces agregamos el atributo tipo type="button", el atributo data-toggle="collapse", el atributo data-target="#portafolio-content", en este caso va a ser el id del elemento que queremos collapsar portafolio-content, el atributo aria-expanded="false", por lo tanto va a estar collapsado por defecto, tambien agregamos el atributo  aria-controls="portafolio-content" tambien con el id de mi elemento 
+finalmente dentro de este boton agregue unicamente un icono de los que ya conocemos de fontawesome
+ <i class="far fa-plus-square"></i>
+esto es todo lo que he echo para lograr que el contenido de esta area sea collapsable
+<div class="head-content d-flex align-items-baseline">
+ <button class="btn" type="button" data-toggle="collapse" data-target="#portafolio-content" aria-expanded="false" aria-controls="portafolio-content">
+    <i class="far fa-plus-square"></i>
+  </button>
+		<h3 class="sect-title">Proyectos destacados</h3>
+			</div>
+como lo hemos echo para nuestra seccion de portafolio, tambien lo puedo hacer para nuestra seccion de skills, para ello unicamente copeamos el boton, debemos recordar que el div que va a ser collapsable debe contener la clase collapse y su id
+entonces copeamos el boton, nos vamos al en la etiqueta section con el id skills, en el div con la clase head-content, pegamos el boton, y verificamos cada uno de los atributos, el unico que tenemos que cambiar es el valor del atributo data-target, y lo vamos a sustituir por el id del elemento que queremos collapsar, cuando se de clic en el titulo habilidades, en este caso es el id skill-content, tambien en el atributo aria-controls vamos a poner ese id  skill-content
+y bueno ya tendria de esta forma el boton que va a ser el trigger para el collapsable
+lo unico que nos falta es agregar al div con la clase skill-content, la clase collapse
+___________________________________________
+archivo index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/custom.css">
+	<link rel="stylesheet" type="text/css" href="css/responsive.css">
+</head>
+<body>
+	<header class="header-area fixed-top">
+		<div class="main-menu">
+			<nav class="navbar">
+				<div class="container">
+					<ul class="nav ml-auto  mr-auto mr-md-0">
+						<li class="nav-item active"> <a class="nav-link" href="#main-info">Principal</a></li>
+						<li class="nav-item "> <a class="nav-link" href="#skills">Habilidades</a></li>
+						<li class="nav-item "> <a class="nav-link" href="#education">Educacion</a></li>
+						<li class="nav-item submenu dropdown">
+							<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Proyectos</a>
+							<ul class="dropdown-menu">
+									<li class="nav-item "> <a class="nav-link" href="#main-info">Portfolio</a></li>
+										<li class="nav-item "> <a class="nav-link" href="#main-info">GitHub</a></li>
+							</ul>
+						 </li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<section class="main-info bg-grad" id="main-info">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-md-5 col-xl-6 img-col d-flex align-items-center">
+					<div class="img-container d-flex justify-content-center">
+						<img src="" alt="">
+					</div>
+				</div>
+				<div class="col-12 col-md-7 col-xl-6 txt-col">
+					<div class="text-container">
+						<h3 class="sect-title text-uppercase">Ruben Octacvio</h3>
+						<h4 class="text-uppercase">Desarrollador Web</h4>
+						<p>Desarrollo</p>
+						<ul class="list-unstyled basic-info">
+							<li> <i class="far fa-calendar-alt"></i>4 de Abril de 19989</li>
+							<li><i class="fas fa-phone"></i> +52 346 700 44 34</li>
+							<li><i class="fas fa-at"></i>rubenoctavio@itsn.edu.mx</li>
+							<li><i class="fas fa-map-marker-alt"></i>Mexico</li>
+						</ul>
+						<ul class="list-inline social-rw">
+							<li class="list-inline-item"><a href=""><i class="fab fa-linkedin"></i></a></li>
+								<li class="list-inline-item"><a href=""><i class="fab fa-twitter"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+	<section class="sect skills" id="skills">
+<div class="container">
+	<div class="head-content d-flex align-items-baseline">
+		<button class="btn" type="button" data-toggle="collapse" data-target="#skill-content" aria-expanded="false" aria-controls="skill-content">
+    <i class="far fa-plus-square"></i>
+  </button>
+		<h4>Hbilidades</h4>
+			</div>
+		<div class="row collapse" id="skill-content">
+			<div class="skill-cols col-12 col-md-6">
+				<h4 class="sect-subtitle">Desarrollo de Software</h4>
+				<div class="skill-item"><p class="text">Laravel</p>
+<div class="progress">
+	<div class="progress-bar" role="progressbar" style="width: 78%" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100">78%</div>
+</div>
+				</div>
+				<div class="skill-item"><p class="text">Django</p>
+<div class="progress">
+	<div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+</div>
+				</div>
+
+			</div>
+			<div class="skill-cols col-12 col-md-6">
+				<h4 class="sect-subtitle">Otras</h4>
+				<div class="skill-item"><p class="text">Ingles</p>
+<div class="progress">
+	<div class="progress-bar" role="progressbar" style="width: 78%" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100">78%</div>
+</div>
+				</div>
+				<div class="skill-item"><p class="text">Photosop</p>
+<div class="progress">
+	<div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+</div>
+				</div>
+
+			</div>
+			<div></div>
+		</div>
+
+</div>
+	</section>
+	<section class="sect portafolio bg-grad-b" id="portafolio">
+		<div class="container">
+			<div class="head-content d-flex align-items-baseline">
+ <button class="btn" type="button" data-toggle="collapse" data-target="#portafolio-content" aria-expanded="false" aria-controls="portafolio-content">
+    <i class="far fa-plus-square"></i>
+  </button>
+		<h3 class="sect-title">Proyectos destacados</h3>
+			</div>
+		</div>
+		<div class="container-fluid collapse" id="portafolio-content">
+<div class="card-container d-flex flex-wrap justify-content-around align-items-center">
+	<div class="card">
+<div class="card-body">
+	 <i class="fas fa-credit-card"></i>
+	 <h5 class="card-title">Sistema de pagos</h5>
+	 <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing, elit. Nesciunt doloremque quam, autem repellendus inventore, fugiat possimus? Sint quibusdam, voluptatibus eos illo, officia error aliquam deleniti quis possimus, consequuntur temporibus delectus.</p>
+	 <a href="" class="btn btn-primary">ir al sitio web</a>
+</div>
+	</div>
+	<div class="card">
+<div class="card-body">
+	 <i class="fas fa-credit-card"></i>
+	 <h5 class="card-title">Sistema de pagos</h5>
+	 <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing, elit. Nesciunt doloremque quam, autem repellendus inventore, fugiat possimus? Sint quibusdam, voluptatibus eos illo, officia error aliquam deleniti quis possimus, consequuntur temporibus delectus.</p>
+	 <a href="" class="btn btn-primary">ir al sitio web</a>
+</div>
+	</div>
+	<div class="card">
+<div class="card-body">
+	 <i class="fas fa-credit-card"></i>
+	 <h5 class="card-title">Sistema de pagos</h5>
+	 <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing, elit. Nesciunt doloremque quam, autem repellendus inventore, fugiat possimus? Sint quibusdam, voluptatibus eos illo, officia error aliquam deleniti quis possimus, consequuntur temporibus delectus.</p>
+	 <a href="" class="btn btn-primary">ir al sitio web</a>
+</div>
+	</div>
+	<div class="card">
+<div class="card-body">
+	 <i class="fas fa-credit-card"></i>
+	 <h5 class="card-title">Sistema de pagos</h5>
+	 <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing, elit. Nesciunt doloremque quam, autem repellendus inventore, fugiat possimus? Sint quibusdam, voluptatibus eos illo, officia error aliquam deleniti quis possimus, consequuntur temporibus delectus.</p>
+	 <a href="" class="btn btn-primary">ir al sitio web</a>
+</div>
+	</div>
+</div>
+		</div>
+	</section>
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+</body>
+</html>
+
